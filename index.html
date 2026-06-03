@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/EZ-Favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="Host your AI-generated website in seconds. Drop a ZIP or connect GitHub. SSL, analytics, and forms included. Free to start.">
+  <meta name="keywords" content="static hosting, AI website hosting, Claude Code hosting, Cursor hosting, deploy HTML, static site hosting">
+  <meta property="og:title" content="EZLaunch — Static Hosting for AI-Generated Websites">
+  <meta property="og:description" content="Host your AI-generated website in seconds. SSL, analytics, and forms included.">
+  <meta property="og:url" content="https://ezlaunch.app">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="EZLaunch — Static Hosting for AI-Generated Websites">
+  <meta name="twitter:description" content="Host your AI-generated website in seconds. SSL, analytics, and forms included.">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.png">
+  <title>EZLaunch — Static Hosting for AI-Generated Websites</title>
+  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="css/fonts.css">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="#" class="nav__logo">
+        <img class="nav__logo-img" src="assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+      </a>
+      <ul class="nav__links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">
+          <span class="nav__cta-short">Start free</span>
+          <span class="nav__cta-full">Get started free</span>
+        </a>
+        <button type="button" class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+      <ul class="nav__drawer-links">
+        <li><a href="#features">Features</a></li>
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__drawer-cta">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">Get started free</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <div class="hero__wash hero__wash--left"></div>
+      <div class="hero__wash hero__wash--right"></div>
+      <div class="hero__dots hero__dots--left"></div>
+      <div class="hero__dots hero__dots--right"></div>
+    </div>
+    <div class="hero__grid">
+      <div class="hero__content">
+        <span class="hero__badge" aria-live="polite">
+          <span class="hero__badge-inner">
+            <span class="hero__badge-icon" aria-hidden="true">✦</span>
+            <span class="hero__badge-text">Built for <span class="hero__badge-rotate" id="hero-badge-rotate">AI Builders</span></span>
+          </span>
+        </span>
+        <h1 class="hero__headline">Host your AI-generated website in seconds.</h1>
+        <p class="hero__subheadline">Drop a ZIP or connect GitHub. Your site is live in seconds, with SSL, analytics, SEO optimization and forms included.</p>
+        <div class="hero__ctas">
+          <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="btn-primary">
+            <span class="btn-short">Get started</span>
+            <span class="btn-full">Get started free</span>
+          </a>
+          <a href="#how-it-works" class="btn-ghost">
+            <span class="btn-short">How it works →</span>
+            <span class="btn-full">See how it works →</span>
+          </a>
+        </div>
+        <p class="hero__proof">Join developers already hosting on <span>EZLaunch</span> · Free to start</p>
+      </div>
+
+      <div class="mockup-wrapper">
+      <div class="mockup-card">
+        <div class="mockup-tabs">
+          <button type="button" class="mockup-tab mockup-tab--active" aria-current="true">ZIP Upload</button>
+          <button type="button" class="mockup-tab mockup-tab--static" tabindex="-1">GitHub</button>
+        </div>
+        <div class="mockup-body">
+
+          <!-- ZIP Upload Flow -->
+          <div class="flow-panel active" id="flow-zip" data-flow="zip" data-stage="idle">
+            <div class="zip-stages">
+              <div class="zip-drop-wrapper">
+                <div class="zip-file-float" id="zip-float" aria-hidden="true">
+                  <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" fill="none">
+                    <path d="M10 54V26q0-6 6-6h12l4-5h22q8 0 8 8v31q0 6-6 6H16q-6 0-6-6Z" fill="#4338CA"/>
+                    <path d="M12 52V27q0-4 5-4h11l4-5h19q5 0 5 5v29q0 4-4 4H17q-5 0-5-5Z" fill="#818CF8"/>
+                    <path d="M14 50V31q0-3 3-3h38q3 0 3 3v19q0 3-3 3H17q-3 0-3-3Z" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.25"/>
+                    <path d="M33 37v12m3.5-10.5 6 6 6-6" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <rect x="23" y="33" width="12" height="10" rx="1.5" fill="#FFF" stroke="#6366F1" stroke-width="1.25"/>
+                    <path d="M26 36h6M26 39h4" stroke="#6366F1" stroke-width="1.2" stroke-linecap="round"/>
+                  </svg>
+                </div>
+                <div class="drop-zone" id="zip-drop">
+                  <span class="drop-zone__text" id="zip-drop-text">Drag & drop your site.zip</span>
+                  <span class="drop-zone__filename" id="zip-filename">mysite.zip · 2.4 MB</span>
+                </div>
+              </div>
+              <div class="deploy-panel" id="zip-deploy">
+                <div class="deploy-panel__hero">
+                  <div class="deploy-spinner deploy-spinner--lg" aria-hidden="true"></div>
+                  <p class="deploy-panel__title">Deploying your site...</p>
+                </div>
+                <ol class="deploy-steps">
+                  <li class="deploy-step deploy-step--pending" id="zip-step-1">
+                    <span class="deploy-step__icon">
+                      <span class="deploy-step__num">1</span>
+                      <span class="deploy-step__spin"></span>
+                      <span class="deploy-step__check">
+                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </span>
+                    <span class="deploy-step__label">Validating...</span>
+                  </li>
+                  <li class="deploy-step deploy-step--pending" id="zip-step-2">
+                    <span class="deploy-step__icon">
+                      <span class="deploy-step__num">2</span>
+                      <span class="deploy-step__spin"></span>
+                      <span class="deploy-step__check">
+                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </span>
+                    <span class="deploy-step__label">Extracting files...</span>
+                  </li>
+                  <li class="deploy-step deploy-step--pending" id="zip-step-3">
+                    <span class="deploy-step__icon">
+                      <span class="deploy-step__num">3</span>
+                      <span class="deploy-step__spin"></span>
+                      <span class="deploy-step__check">
+                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </span>
+                    <span class="deploy-step__label">Uploading to CDN...</span>
+                  </li>
+                  <li class="deploy-step deploy-step--pending" id="zip-step-4">
+                    <span class="deploy-step__icon">
+                      <span class="deploy-step__num">4</span>
+                      <span class="deploy-step__spin"></span>
+                      <span class="deploy-step__check">
+                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                      </span>
+                    </span>
+                    <span class="deploy-step__label">Done</span>
+                  </li>
+                </ol>
+              </div>
+              <div class="zip-live-msg" id="zip-live-msg">
+                <span class="zip-live-msg__check">
+                  <svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3.5 3.5L14 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </span>
+                <span class="zip-live-msg__text">Your site is live</span>
+              </div>
+            </div>
+            <div class="browser-preview" id="zip-browser">
+              <div class="browser-chrome">
+                <div class="traffic-lights">
+                  <span class="traffic-light traffic-light--red"></span>
+                  <span class="traffic-light traffic-light--yellow"></span>
+                  <span class="traffic-light traffic-light--green"></span>
+                </div>
+                <div class="url-bar">
+                  <span class="ssl-badge">
+                    <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 1L2 2.5v3C2 7.5 3.8 9.8 6 11c2.2-1.2 4-3.5 4-5.5v-3L6 1z"/></svg>
+                    SSL
+                  </span>
+                  <span class="url-bar__domain">mysite.ezlaunch.app</span>
+                </div>
+              </div>
+              <div class="browser-content">
+                <div class="site-preview">
+                  <nav class="site-preview__nav">
+                    <div class="site-preview__brand">
+                      <span class="site-preview__dot"></span>
+                      <div class="site-preview__links">
+                        <span class="site-preview__link-dash"></span>
+                        <span class="site-preview__link-dash"></span>
+                        <span class="site-preview__link-dash"></span>
+                      </div>
+                    </div>
+                    <span class="site-preview__cta-mini">Hire me</span>
+                  </nav>
+                  <div class="site-preview__hero">
+                    <div class="site-preview__accent"></div>
+                    <h2>Alex Rivera</h2>
+                    <p>Designer & developer building thoughtful interfaces.</p>
+                  </div>
+                  <div class="site-preview__cards">
+                    <div class="site-preview__card">
+                      <div class="site-preview__card-thumb"></div>
+                      <div class="site-preview__card-body">
+                        <div class="site-preview__card-title">Neon Atlas</div>
+                        <div class="site-preview__card-meta">Brand · Web</div>
+                      </div>
+                    </div>
+                    <div class="site-preview__card">
+                      <div class="site-preview__card-thumb"></div>
+                      <div class="site-preview__card-body">
+                        <div class="site-preview__card-title">Pulse CRM</div>
+                        <div class="site-preview__card-meta">Product UI</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <span class="live-pulse"><span class="live-pulse__dot"></span> Live</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Built for AI builders — logos -->
+  <section class="logos-strip" aria-label="Compatible AI coding tools">
+    <div class="logos-strip__inner">
+      <p class="logos-strip__label">Works with every AI coding tool</p>
+    </div>
+    <div class="logos-strip__marquee" aria-hidden="true">
+      <div class="logos-strip__track">
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Claude Code">
+          <img class="logos-strip__img" src="assets/ezlaunch_Claude.svg" alt="" width="180" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Cursor">
+          <img class="logos-strip__img" src="assets/ezlaunch_Cursor.svg" alt="" width="140" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Bolt">
+          <img class="logos-strip__img" src="assets/ezlaunch_Bolt.svg" alt="" width="120" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="v0">
+          <img class="logos-strip__img" src="assets/ezlaunch_V0.svg" alt="" width="64" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Windsurf">
+          <img class="logos-strip__img" src="assets/ezlaunch_Windsurf.svg" alt="" width="160" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Kimi">
+          <img class="logos-strip__img" src="assets/ez_Kimi.svg" alt="" width="120" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Replit">
+          <img class="logos-strip__img" src="assets/ez_Replit.svg" alt="" width="130" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Lovable">
+          <img class="logos-strip__img" src="assets/ez_Lovable.svg" alt="" width="130" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Claude Code">
+          <img class="logos-strip__img" src="assets/ezlaunch_Claude.svg" alt="" width="180" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Cursor">
+          <img class="logos-strip__img" src="assets/ezlaunch_Cursor.svg" alt="" width="140" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Bolt">
+          <img class="logos-strip__img" src="assets/ezlaunch_Bolt.svg" alt="" width="120" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="v0">
+          <img class="logos-strip__img" src="assets/ezlaunch_V0.svg" alt="" width="64" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Windsurf">
+          <img class="logos-strip__img" src="assets/ezlaunch_Windsurf.svg" alt="" width="160" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Kimi">
+          <img class="logos-strip__img" src="assets/ez_Kimi.svg" alt="" width="120" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Replit">
+          <img class="logos-strip__img" src="assets/ez_Replit.svg" alt="" width="130" height="32" loading="lazy" decoding="async">
+        </span>
+        <span class="logos-strip__pill logos-strip__pill--asset" title="Lovable">
+          <img class="logos-strip__img" src="assets/ez_Lovable.svg" alt="" width="130" height="32" loading="lazy" decoding="async">
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section--gray" id="features">
+    <div class="section__inner">
+      <header class="features__header">
+        <span class="section__label">Features</span>
+        <h2 class="section__headline">Everything your site needs. Nothing it doesn't.</h2>
+        <p class="section__sub">Every plan includes the tools that matter, no add-ons, no surprises.</p>
+      </header>
+      <div class="features__grid">
+        <article class="feature-card">
+          <div class="feature-card__visual">
+            <div class="mini-drop">
+              <div class="mini-drop__zone">
+                <span class="mini-drop__zip">mysite.zip</span>
+              </div>
+              <div class="mini-drop__bar"><div class="mini-drop__bar-fill"></div></div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">Deploy in seconds</h3>
+          <p class="feature-card__desc">Upload a ZIP or push to GitHub. Your site is live before you finish your coffee.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual">
+            <div class="mini-ssl">
+              <div class="mini-ssl__chrome">
+                <span class="mini-ssl__lock" aria-hidden="true">
+                  <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M7 1L3 2.5v3C3 8 5 10 7 11c2-1 4-3 4-5.5v-3L7 1z" fill="currentColor"/></svg>
+                </span>
+                <span class="mini-ssl__url">https://mysite.ezlaunch.app</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">SSL included</h3>
+          <p class="feature-card__desc">Every site gets a free SSL certificate automatically. No config, no renewals.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual">
+            <div class="mini-chart">
+              <div class="mini-chart__top">
+                <span class="mini-chart__label">Pageviews</span>
+                <span class="mini-chart__toggle">Weekly</span>
+              </div>
+              <div class="mini-chart__bars">
+                <span class="mini-chart__bar"></span>
+                <span class="mini-chart__bar"></span>
+                <span class="mini-chart__bar"></span>
+                <span class="mini-chart__bar"></span>
+                <span class="mini-chart__bar"></span>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">Built-in analytics</h3>
+          <p class="feature-card__desc">See who's visiting, where they're from, and what they're reading. No tracking scripts to install.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual feature-card__visual--forms">
+            <div class="mini-forms">
+              <div class="mini-forms__code" aria-hidden="true">
+                <span class="mini-forms__code-muted">&lt;form</span>
+                <span class="mini-forms__code-attr"> data-ezlaunch</span>
+                <span class="mini-forms__code-muted">&gt;…&lt;/form&gt;</span>
+              </div>
+              <div class="mini-forms__inbox">
+                <div class="mini-forms__inbox-head">
+                  <span class="mini-forms__inbox-title">Submissions</span>
+                  <span class="mini-forms__inbox-badge">Just now</span>
+                </div>
+                <div class="mini-forms__row">
+                  <span class="mini-forms__avatar">JD</span>
+                  <div class="mini-forms__meta">
+                    <span class="mini-forms__name">John Doe</span>
+                    <span class="mini-forms__email">john@site.com</span>
+                  </div>
+                  <span class="mini-forms__check" aria-hidden="true">
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><circle cx="7" cy="7" r="7" fill="#10B981"/><path d="M4 7l2 2 4-4" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">Forms that work</h3>
+          <p class="feature-card__desc">Add data-ezlaunch to any form. Submissions show up in your dashboard instantly.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual feature-card__visual--domain">
+            <div class="mini-domain">
+              <div class="mini-domain__browser">
+                <div class="mini-domain__chrome">
+                  <div class="mini-domain__lights" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="mini-domain__url" aria-hidden="true"></div>
+                </div>
+              </div>
+              <div class="mini-domain__connector" aria-hidden="true">
+                <div class="mini-domain__line">
+                  <span class="mini-domain__pulse"></span>
+                </div>
+              </div>
+              <div class="mini-domain__pill">
+                <span class="mini-domain__status" aria-hidden="true"></span>
+                <span class="mini-domain__text">yourdomain.com</span>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">Custom domains</h3>
+          <p class="feature-card__desc">Connect your own domain in minutes. SSL provisions automatically on the first visit.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual" style="padding:0;">
+            <div class="mini-term">
+              <span class="mini-term__prompt">$</span> ezlaunch deploy<br>
+              <span class="mini-term__ok">✓</span> Uploading files...<br>
+              <span class="mini-term__ok">✓</span> Live at mysite.ezlaunch.app
+            </div>
+          </div>
+          <h3 class="feature-card__title">CLI for developers</h3>
+          <p class="feature-card__desc">Deploy from your terminal with one command. Integrate into any workflow.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual feature-card__visual--tall">
+            <div class="mini-seo">
+              <span class="mini-seo__ai-badge" aria-hidden="true">✦ AI</span>
+              <div class="mini-seo__body">
+                <div class="mini-seo__score">
+                  <div class="mini-seo__score-col">
+                    <div class="mini-seo__ring" aria-hidden="true">
+                      <span class="mini-seo__ring-inner">
+                        <span class="mini-seo__score-num">87</span>
+                      </span>
+                    </div>
+                    <span class="mini-seo__score-label">SEO Score</span>
+                  </div>
+                  <ul class="mini-seo__issues" aria-hidden="true">
+                    <li class="mini-seo__issue mini-seo__issue--ok">
+                      <span class="mini-seo__issue-icon">✓</span>
+                      <span class="mini-seo__issue-text">Title tag</span>
+                    </li>
+                    <li class="mini-seo__issue mini-seo__issue--ok">
+                      <span class="mini-seo__issue-icon">✓</span>
+                      <span class="mini-seo__issue-text">Meta description</span>
+                    </li>
+                    <li class="mini-seo__issue mini-seo__issue--ok">
+                      <span class="mini-seo__issue-icon">✓</span>
+                      <span class="mini-seo__issue-text">Open Graph image</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">AI SEO Optimizer</h3>
+          <p class="feature-card__desc">Get AI-powered SEO recommendations for every page. Analyze, fix, and apply improvements with one click.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual feature-card__visual--tall">
+            <div class="mini-images" aria-hidden="true">
+              <div class="mini-images__panel">
+                <div class="mini-images__head">
+                  <span class="mini-images__head-icon">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <rect x="1.5" y="3" width="13" height="10" rx="2" stroke="#6366F1" stroke-width="1.3"/>
+                      <circle cx="5.5" cy="6.5" r="1.2" fill="#6366F1"/>
+                      <path d="M1.5 10.5l3.5-3 2.5 2 3-3.5L14.5 10" stroke="#6366F1" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span class="mini-images__head-title">Your images</span>
+                  <span class="mini-images__count">4 stored</span>
+                </div>
+                <div class="mini-images__gallery">
+                  <div class="mini-images__tile mini-images__tile--purple">
+                    <svg class="mini-images__tile-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                      <circle cx="6" cy="6.5" r="1.5" fill="rgba(255,255,255,0.9)"/>
+                      <path d="M2 14l4.5-4 3 2.5L12 8l4 6H2z" fill="rgba(255,255,255,0.85)"/>
+                    </svg>
+                  </div>
+                  <div class="mini-images__tile mini-images__tile--green">
+                    <svg class="mini-images__tile-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                      <circle cx="6" cy="6.5" r="1.5" fill="rgba(255,255,255,0.9)"/>
+                      <path d="M2 14l4.5-4 3 2.5L12 8l4 6H2z" fill="rgba(255,255,255,0.85)"/>
+                    </svg>
+                  </div>
+                  <div class="mini-images__tile mini-images__tile--amber">
+                    <svg class="mini-images__tile-icon" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true">
+                      <circle cx="6" cy="6.5" r="1.5" fill="rgba(255,255,255,0.9)"/>
+                      <path d="M2 14l4.5-4 3 2.5L12 8l4 6H2z" fill="rgba(255,255,255,0.85)"/>
+                    </svg>
+                  </div>
+                  <div class="mini-images__tile mini-images__tile--upload">
+                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                      <path d="M8 3v7M5 7l3-3 3 3" stroke="#9CA3AF" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"/>
+                      <path d="M3 12h10" stroke="#9CA3AF" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                  </div>
+                </div>
+                <div class="mini-images__file">
+                  <span class="mini-images__file-thumb mini-images__file-thumb--purple"></span>
+                  <div class="mini-images__file-meta">
+                    <span class="mini-images__file-name">hero-banner.png</span>
+                    <span class="mini-images__file-url">assets.ezlaunch.app/hero-banner.png</span>
+                  </div>
+                  <span class="mini-images__copy-wrap" tabindex="-1">
+                    <span class="mini-images__copy-label">Copy</span>
+                    <span class="mini-images__copied">Copied!</span>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">Image Hosting</h3>
+          <p class="feature-card__desc">Upload images and get instant public URLs. Perfect for emails, docs, or anywhere you need a hosted image.</p>
+        </article>
+        <article class="feature-card">
+          <div class="feature-card__visual feature-card__visual--tall feature-card__visual--editor">
+            <div class="mini-editor">
+              <div class="mini-editor__bar">
+                <span class="mini-editor__dots" aria-hidden="true">
+                  <span></span><span></span><span></span>
+                </span>
+                <span class="mini-editor__filename">index.html</span>
+              </div>
+              <pre class="mini-editor__code" aria-hidden="true"><code><span class="mini-editor__tag">&lt;title&gt;</span>My Portfolio<span class="mini-editor__tag">&lt;/title&gt;</span>
+<span class="mini-editor__tag">&lt;meta</span> <span class="mini-editor__attr">name</span>=<span class="mini-editor__val">"description"</span>
+  <span class="mini-editor__attr">content</span>=<span class="mini-editor__val">"Designer &amp; developer
+  based in San José"</span><span class="mini-editor__tag">&gt;</span></code></pre>
+              <div class="mini-editor__footer">
+                <button type="button" class="mini-editor__save" tabindex="-1">Save changes</button>
+              </div>
+            </div>
+          </div>
+          <h3 class="feature-card__title">Built-in Code Editor</h3>
+          <p class="feature-card__desc">Edit your HTML, CSS, and JS directly in the browser. Fix typos or update content without redeploying.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="how" id="how-it-works">
+    <div class="how__steps-wrap">
+      <div class="section__inner">
+        <header class="how__header">
+          <span class="section__label">How it works</span>
+          <h2 class="how__headline">From AI tool to live site in three steps.</h2>
+          <p class="how__subheadline">No servers, no config, no DevOps. Just your site, live.</p>
+        </header>
+        <div class="how__cards">
+          <article class="how-card">
+            <span class="how-card__num" aria-hidden="true">01</span>
+            <div class="how-card__visual">
+              <div class="how-card__marquee" aria-hidden="true">
+                <div class="how-card__marquee-track">
+                  <span class="how-card__pill how-card__pill--logo" title="Claude Code">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Claude.svg" alt="" width="100" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Cursor">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Cursor.svg" alt="" width="88" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Bolt">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Bolt.svg" alt="" width="72" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="v0">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_V0.svg" alt="" width="40" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Windsurf">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Windsurf.svg" alt="" width="96" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Kimi">
+                    <img class="how-card__pill-img" src="assets/ez_Kimi.svg" alt="" width="72" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Replit">
+                    <img class="how-card__pill-img" src="assets/ez_Replit.svg" alt="" width="80" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Lovable">
+                    <img class="how-card__pill-img" src="assets/ez_Lovable.svg" alt="" width="80" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Claude Code">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Claude.svg" alt="" width="100" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Cursor">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Cursor.svg" alt="" width="88" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Bolt">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Bolt.svg" alt="" width="72" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="v0">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_V0.svg" alt="" width="40" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Windsurf">
+                    <img class="how-card__pill-img" src="assets/ezlaunch_Windsurf.svg" alt="" width="96" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Kimi">
+                    <img class="how-card__pill-img" src="assets/ez_Kimi.svg" alt="" width="72" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Replit">
+                    <img class="how-card__pill-img" src="assets/ez_Replit.svg" alt="" width="80" height="32" loading="lazy" decoding="async">
+                  </span>
+                  <span class="how-card__pill how-card__pill--logo" title="Lovable">
+                    <img class="how-card__pill-img" src="assets/ez_Lovable.svg" alt="" width="80" height="32" loading="lazy" decoding="async">
+                  </span>
+                </div>
+              </div>
+            </div>
+            <h3 class="how-card__title">Build with AI</h3>
+            <p class="how-card__desc">Use any AI coding tool to build your HTML, CSS, and JS site. Claude Code, Cursor, Bolt — they all work.</p>
+          </article>
+          <article class="how-card">
+            <span class="how-card__num" aria-hidden="true">02</span>
+            <div class="how-card__visual">
+              <div class="how-deploy" id="how-deploy-demo" data-active-tab="zip">
+                <div class="how-deploy__tabs" role="tablist" aria-label="Deploy method">
+                  <button type="button" class="how-deploy__tab is-active" role="tab" aria-selected="true" data-tab="zip">ZIP</button>
+                  <button type="button" class="how-deploy__tab" role="tab" aria-selected="false" data-tab="github">GitHub</button>
+                </div>
+                <div class="how-deploy__panel how-deploy__panel--zip" role="tabpanel">
+                  <div class="how-deploy__file" aria-hidden="true">
+                    <svg width="28" height="32" viewBox="0 0 28 32" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 30V8l4-4h8l2 2h10v24H4Z" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.5"/><path d="M12 18v8m2-6 3 3 3-3" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>site.zip</span>
+                  </div>
+                  <div class="how-deploy__bar" aria-hidden="true"><span class="how-deploy__bar-fill"></span></div>
+                  <p class="how-deploy__status">Uploading...</p>
+                </div>
+                <div class="how-deploy__panel how-deploy__panel--github" role="tabpanel" hidden>
+                  <div class="how-deploy__github">
+                    <svg class="how-deploy__octocat" width="32" height="32" viewBox="0 0 24 24" fill="#1E1B4B" aria-hidden="true"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+                    <code class="how-deploy__repo">user/my-site</code>
+                  </div>
+                  <div class="how-deploy__spinner" aria-hidden="true"></div>
+                  <p class="how-deploy__status">Cloning...</p>
+                </div>
+              </div>
+            </div>
+            <h3 class="how-card__title">Deploy to EZLaunch</h3>
+            <p class="how-card__desc">Drop your ZIP file or connect a GitHub repo. We extract, optimize, and push your files to the CDN.</p>
+          </article>
+          <article class="how-card">
+            <span class="how-card__num" aria-hidden="true">03</span>
+            <div class="how-card__visual">
+              <div class="how-live">
+                <div class="how-live__chrome">
+                  <div class="how-live__dots" aria-hidden="true">
+                    <span></span><span></span><span></span>
+                  </div>
+                  <div class="how-live__url">
+                    <svg width="10" height="10" viewBox="0 0 12 12" fill="none" aria-hidden="true"><path d="M6 1L2 2.5v3C2 7.5 3.8 9.8 6 11c2.2-1.2 4-3.5 4-5.5v-3L6 1z" fill="#10B981"/></svg>
+                    <span>mysite.ezlaunch.app</span>
+                  </div>
+                </div>
+                <div class="how-live__badges">
+                  <span class="how-live__badge how-live__badge--ssl">✓ SSL Active</span>
+                  <span class="how-live__badge how-live__badge--analytics">📊 Analytics On</span>
+                </div>
+                <div class="how-live__pulse-wrap" aria-hidden="true">
+                  <span class="how-live__pulse-dot"></span>
+                  <span class="how-live__pulse-label">LIVE</span>
+                </div>
+              </div>
+            </div>
+            <h3 class="how-card__title">Share with the world</h3>
+            <p class="how-card__desc">Your site is live at yourname.ezlaunch.app with SSL, analytics, and forms ready out of the box.</p>
+          </article>
+        </div>
+      </div>
+    </div>
+    <div class="how__cli-band" id="cli">
+      <div class="how__cli-inner">
+        <div class="how__cli-copy-col">
+          <p class="how__cli-eyebrow">For developers</p>
+          <h2 class="how__cli-headline">Prefer the terminal?</h2>
+          <p class="how__cli-text">Install the EZLaunch CLI and deploy from anywhere in 3 commands.</p>
+          <div class="how__cli-platforms">
+            <span class="how__cli-platform">Node.js</span>
+            <span class="how__cli-platform">macOS</span>
+            <span class="how__cli-platform">Linux</span>
+            <span class="how__cli-platform">Windows</span>
+          </div>
+        </div>
+        <div class="how__cli-terminal-col">
+          <div class="how__terminal" id="how-terminal">
+            <div class="how__terminal-header">
+              <div class="how__terminal-dots" aria-hidden="true">
+                <span></span><span></span><span></span>
+              </div>
+              <span class="how__terminal-title">Terminal</span>
+              <button type="button" class="how__terminal-copy" id="cli-copy-btn" aria-label="Copy CLI commands">Copy</button>
+            </div>
+            <div class="how__terminal-body">
+              <div class="how__terminal-line" data-line="0"><span class="how__terminal-prompt">$</span> npm install -g ezlaunch</div>
+              <div class="how__terminal-line" data-line="1"><span class="how__terminal-prompt">$</span> ezlaunch login</div>
+              <div class="how__terminal-line" data-line="2"><span class="how__terminal-prompt">$</span> ezlaunch deploy</div>
+              <div class="how__terminal-line how__terminal-line--ok" data-line="3">✓ Uploading files...</div>
+              <div class="how__terminal-line how__terminal-line--ok" data-line="4">✓ Live at mysite.ezlaunch.app</div>
+              <span class="how__terminal-cursor" aria-hidden="true">|</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section section--gray" id="pricing">
+    <div class="section__inner">
+      <header class="pricing__header">
+        <h2 class="section__headline">Simple pricing. No surprises.</h2>
+        <p class="section__sub">Start free, upgrade when you're ready. Cancel anytime.</p>
+      </header>
+      <div class="pricing__toggle-row">
+        <div class="pricing__toggle" role="group" aria-label="Billing period">
+          <button type="button" class="pricing__toggle-btn is-active" data-billing="monthly" id="billing-monthly">Monthly</button>
+          <button type="button" class="pricing__toggle-btn" data-billing="yearly" id="billing-yearly">Yearly<span class="pricing__toggle-badge">2 months free</span></button>
+        </div>
+      </div>
+      <div class="pricing__grid">
+        <article class="pricing-card" data-plan="free">
+          <p class="pricing-card__name">Free</p>
+          <p class="pricing-card__price"><span class="js-price-main">$0</span><span class="js-price-sub"></span></p>
+          <div class="pricing-card__features">
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Sites</span><span class="pricing-card__row-val">2</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Storage</span><span class="pricing-card__row-val">500 MB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Asset storage</span><span class="pricing-card__row-val">50 MB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Custom domains</span><span class="pricing-card__row-val">—</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Forms / mo</span><span class="pricing-card__row-val">100</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Analytics</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">CLI</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Support</span><span class="pricing-card__row-val">Community</span></div>
+          </div>
+          <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="pricing-card__cta pricing-card__cta--ghost">Get started free</a>
+        </article>
+        <article class="pricing-card" data-plan="starter">
+          <p class="pricing-card__name">Starter</p>
+          <p class="pricing-card__price"><span class="js-price-main">$5</span><span class="js-price-sub">/mo</span></p>
+          <div class="pricing-card__features">
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Sites</span><span class="pricing-card__row-val">5</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Storage</span><span class="pricing-card__row-val">2 GB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Asset storage</span><span class="pricing-card__row-val">500 MB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Custom domains</span><span class="pricing-card__row-val">1</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Forms / mo</span><span class="pricing-card__row-val">1,000</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Analytics</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">CLI</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Support</span><span class="pricing-card__row-val">Email</span></div>
+          </div>
+          <a href="https://app.ezlaunch.app/signup?plan=starter" onclick="fbq('track', 'Lead'); return true;" class="pricing-card__cta pricing-card__cta--primary">Start with Starter</a>
+        </article>
+        <article class="pricing-card pricing-card--featured" data-plan="pro">
+          <span class="pricing-card__badge">Most popular</span>
+          <p class="pricing-card__name">Pro</p>
+          <p class="pricing-card__price"><span class="js-price-main">$10</span><span class="js-price-sub">/mo</span></p>
+          <div class="pricing-card__features">
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Sites</span><span class="pricing-card__row-val">20</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Storage</span><span class="pricing-card__row-val">10 GB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Asset storage</span><span class="pricing-card__row-val">2 GB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Custom domains</span><span class="pricing-card__row-val">5</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Forms / mo</span><span class="pricing-card__row-val">Unlimited</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Analytics</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">CLI</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Support</span><span class="pricing-card__row-val">Priority</span></div>
+          </div>
+          <a href="https://app.ezlaunch.app/signup?plan=pro" onclick="fbq('track', 'Lead'); return true;" class="pricing-card__cta pricing-card__cta--primary">Start with Pro</a>
+        </article>
+        <article class="pricing-card" data-plan="agency">
+          <p class="pricing-card__name">Agency</p>
+          <p class="pricing-card__price"><span class="js-price-main">$19</span><span class="js-price-sub">/mo</span></p>
+          <div class="pricing-card__features">
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Sites</span><span class="pricing-card__row-val">Unlimited</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Storage</span><span class="pricing-card__row-val">50 GB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Asset storage</span><span class="pricing-card__row-val">10 GB</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Custom domains</span><span class="pricing-card__row-val">Unlimited</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Forms / mo</span><span class="pricing-card__row-val">Unlimited</span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Analytics</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">CLI</span><span class="pricing-card__row-val" aria-label="Included"><span class="pricing-card__tick"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none" aria-hidden="true"><circle cx="9" cy="9" r="9" fill="currentColor"/><path d="M5 9 L8 12 L13 6" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span></span></div>
+            <div class="pricing-card__row"><span class="pricing-card__row-label">Support</span><span class="pricing-card__row-val">White-glove</span></div>
+          </div>
+          <a href="https://app.ezlaunch.app/signup?plan=agency" onclick="fbq('track', 'Lead'); return true;" class="pricing-card__cta pricing-card__cta--ghost">Contact us</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="cta-final" aria-label="Get started">
+    <div class="cta-final__inner">
+      <h2 class="cta-final__headline">Your site is one deploy away.</h2>
+      <p class="cta-final__sub">Free to start. No credit card required.</p>
+      <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="cta-final__btn">Get started free</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="#" class="footer__brand-logo">
+          <img class="footer__logo-img" src="assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+        </a>
+        <p class="footer__tagline">Static hosting for AI-generated websites.</p>
+        <div class="footer__social">
+          <a class="footer__social-link" href="https://x.com/EZlaunchapp" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on X">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.facebook.com/profile.php?id=61590129630123" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on Facebook">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/company/ezlaunchapp/" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on LinkedIn">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Product</p>
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#pricing">Pricing</a></li>
+            <li><a href="#how-it-works">CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Assets</p>
+          <ul>
+            <li><a href="blog.html">Blog</a></li>
+            <li><a href="prompt-library.html">Prompt Library</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Developers</p>
+          <ul>
+            <li><a href="https://docs.ezlaunch.app">Docs</a></li>
+            <li><a href="https://github.com/Roosterfishdev/ezlaunch-cli" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="./contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 EZLaunch. All rights reserved.</p>
+    </div>
+    <div class="footer__bottom">
+      <a href="./terms.html">Terms</a>
+      <span aria-hidden="true">·</span>
+      <a href="./privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="./status.html">Status</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://docs.ezlaunch.app">Docs</a>
+    </div>
+  </footer>
+
+  <a href="https://app.ezlaunch.app" class="ez-badge" aria-label="Hosted on EZLaunch" target="_blank" rel="noopener noreferrer">
+    <svg class="ez-badge__ring" viewBox="0 0 100 100" width="100" height="100" aria-hidden="true">
+      <defs>
+        <path id="ez-badge-circle" d="M 50,50 m -38,0 a 38,38 0 1,1 76,0 a 38,38 0 1,1 -76,0"/>
+      </defs>
+      <g class="ez-badge__rotate">
+        <text class="ez-badge__text">
+          <textPath href="#ez-badge-circle" startOffset="0%">HOSTED ON EZLAUNCH · HOSTED ON EZLAUNCH · </textPath>
+        </text>
+      </g>
+    </svg>
+    <img class="ez-badge__icon" src="assets/ez-icon.svg" alt="" width="30" height="30" decoding="async">
+  </a>
+
+  <script src="js/main.js"></script>
+
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
+  <script src="js/meta-pixel.js" defer></script>
+</body>
+</html>

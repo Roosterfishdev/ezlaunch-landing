@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/EZ-Favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="A practical, honest guide to deploying AI-generated websites: how output differs by tool, your hosting options compared, and how to pick the right one.">
+  <meta name="author" content="Julian Cabada">
+  <link rel="canonical" href="https://ezlaunch.app/blog/deploying-ai-built-sites.html">
+  <meta property="og:title" content="Deploying Sites Built by ChatGPT, Claude, Bolt, Lovable, and Replit">
+  <meta property="og:description" content="AI made it trivial to generate a website. Here's how to actually put it online — and how to pick the right host.">
+  <meta property="og:url" content="https://ezlaunch.app/blog/deploying-ai-built-sites.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ezlaunch.app/assets/blog/deploying-ai-built-sites.png">
+  <meta property="og:image:width" content="1672">
+  <meta property="og:image:height" content="941">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Deploying Sites Built by ChatGPT, Claude, Bolt, Lovable, and Replit">
+  <meta name="twitter:description" content="AI made it trivial to generate a website. Here's how to actually put it online — and how to pick the right host.">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/blog/deploying-ai-built-sites.png">
+  <title>Deploying Sites Built by ChatGPT, Claude, Bolt, Lovable, and Replit — EZLaunch Blog</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Deploying Sites Built by ChatGPT, Claude, Bolt, Lovable, and Replit",
+    "description": "A practical, honest guide to deploying AI-generated websites: how output differs by tool, your hosting options compared, and how to pick the right one.",
+    "image": "https://ezlaunch.app/assets/blog/deploying-ai-built-sites.png",
+    "datePublished": "2026-06-03",
+    "author": {
+      "@type": "Person",
+      "name": "Julian Cabada"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EZLaunch",
+      "url": "https://ezlaunch.app"
+    }
+  }
+  </script>
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="page-sub page-blog-post">
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img class="nav__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">
+          <span class="nav__cta-short">Start free</span>
+          <span class="nav__cta-full">Get started free</span>
+        </a>
+        <button type="button" class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+      <ul class="nav__drawer-links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__drawer-cta">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">Get started free</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-blog-post__main">
+    <article class="page-blog-post__inner">
+      <a class="page-blog-post__back" href="../blog.html">← Back to blog</a>
+
+      <header class="page-blog-post__header">
+        <p class="page-blog-post__meta">June 3, 2026 · <span class="page-blog-post__author">Julian Cabada</span> · 12 min read</p>
+        <h1 class="page-blog-post__title">Deploying Sites Built by ChatGPT, Claude, Bolt, Lovable, and Replit</h1>
+      </header>
+
+      <figure class="page-blog-post__hero">
+        <img src="../assets/blog/deploying-ai-built-sites.png" alt="Deploying AI-built sites — ChatGPT, Claude, Bolt, Lovable, and Replit" width="1672" height="941" decoding="async">
+      </figure>
+
+      <div class="page-blog-post__content">
+        <p>AI tools have made it trivial to <em>generate</em> a website. You describe what you want, and a few minutes later you have a folder of HTML, CSS, and JavaScript, or a full project scaffolded in a framework. This guide walks through how to deploy a site no matter which AI tool built it, what to watch out for in each case, and how to pick a host that matches what you actually need.</p>
+
+        <section class="page-blog-post__section">
+          <h2>First, figure out what you actually built</h2>
+          <p>Before choosing where to deploy, identify what your AI tool handed you. This matters more than the tool's name, because hosting requirements depend on the output, not the generator.</p>
+          <p><strong>A static site.</strong> Plain HTML, CSS, and JS files, or a framework that builds down to static files (Astro, plain Vite, most landing pages). This is the most common output and the easiest to host. If you can open the <code>index.html</code> file in your browser and it mostly works, it's static.</p>
+          <p><strong>A static site with a build step.</strong> Something like a React, Vue, or Astro project. The source code isn't directly servable. You (or the host) run <code>npm run build</code> first, which produces a <code>dist</code> or <code>build</code> folder of static files. Still static at the end, just with one extra step.</p>
+          <p><strong>A full-stack app.</strong> A Next.js app with server actions, anything with a database, authentication, or API routes that run on a server. This needs a host that can run server-side code, which narrows your options considerably.</p>
+          <p>Most sites people generate from a prompt — landing pages, portfolios, small business sites, marketing pages — fall into the first two categories. That's worth knowing, because static sites are cheap (often free) and simple to host.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>How the output differs by tool</h2>
+          <p><strong><a href="https://chatgpt.com" target="_blank" rel="noopener noreferrer">ChatGPT</a> and <a href="https://claude.ai" target="_blank" rel="noopener noreferrer">Claude</a>.</strong> When you ask these for a website, you usually get raw code in the chat: one or more HTML/CSS/JS files, or a set of framework files you copy out. There's no built-in deploy. You're responsible for collecting the files into a folder and getting them somewhere. The upside is total portability: it's just files, so any static host will take them.</p>
+          <p><strong><a href="https://bolt.new" target="_blank" rel="noopener noreferrer">Bolt</a>.</strong> Bolt generates a working project in-browser and can deploy to <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a> directly, which is convenient if you're already in that ecosystem. You can also download the project and host it anywhere. Bolt often scaffolds full framework projects, so check whether yours is static or needs a server.</p>
+          <p><strong><a href="https://lovable.dev" target="_blank" rel="noopener noreferrer">Lovable</a>.</strong> Lovable builds React applications and offers its own publishing, plus the option to connect a custom domain or export the code. Lovable apps frequently use <a href="https://supabase.com" target="_blank" rel="noopener noreferrer">Supabase</a> for backend features. If yours does, the frontend is still static and hostable anywhere, but the backend lives separately in Supabase regardless of where you host the site.</p>
+          <p><strong><a href="https://replit.com" target="_blank" rel="noopener noreferrer">Replit</a>.</strong> Replit is a full development environment and can host apps itself, including server-side ones. If you built something with a backend in Replit, Replit's own hosting (or another full-stack host) is the natural fit. If you built a static site there, you can download it and host it like any other static project.</p>
+          <p>The throughline: every one of these can produce a downloadable set of files. Once you have those files, deployment is the same problem regardless of which tool made them.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Your deployment options</h2>
+          <p><strong>The big platforms: <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a> and <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>.</strong> These are the established, robust choices, and for good reason. Vercel is the home of <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">Next.js</a> and is excellent for full-stack apps, serverless functions, and anything that needs server-side rendering. Netlify is a mature platform with a deep feature set, build pipelines, and a large ecosystem. If you're building something that will grow into a real application — with server logic, lots of dynamic content, or a team — these are the right tools, and they scale with you. They both have generous free tiers and connect to a <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a> repo for automatic deploys.</p>
+          <p>The tradeoff is that they're built for developers and assume a certain workflow. Connecting a repo, configuring build commands, and understanding the deploy pipeline is straightforward if you already code. If you just generated a static site and have a folder of files, it can feel like more machinery than the task requires.</p>
+          <p><strong><a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a>.</strong> Fast, with a famously generous free tier and unlimited bandwidth at every level, which none of the others match. Strong on the static and JAMstack side, backed by Cloudflare's global network. Also developer-oriented and Git-centric, and like the others it leaves forms, richer analytics, and similar extras for you to assemble.</p>
+          <p><strong><a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a>.</strong> Free and fine for simple static sites, especially if your code already lives on <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>. Limited features and no real path to custom backends, but hard to beat for a personal project or docs site.</p>
+          <p><strong><a href="https://ezlaunch.app">EZLaunch</a>.</strong> This is my own platform, so weigh the recommendation accordingly. It's built for a specific gap: you have a static site — often one an AI tool just generated — and you want it not just <em>online</em> but actually <em>working</em>, without stitching together separate services to get there. You drag a ZIP (or a single HTML file) onto the dashboard, and it comes out the other side as a real site with SSL. It is not a full-stack platform and isn't trying to be. If you need serverless functions or server-side rendering, <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a> or <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a> is the better choice. Its reason to exist is removing the assembly work between "I have files" and "I have a finished site," which is covered in the next section.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>The part that's actually different: AI-assisted SEO and editing</h2>
+          <p>Most hosts stop at serving your files. The two features that set EZLaunch apart aren't about hosting at all. They're about what happens to the site <em>after</em> it's live, and they don't have a real equivalent on the big platforms.</p>
+
+          <div class="page-blog-post__feature">
+            <h3>The AI SEO optimizer</h3>
+            <p>AI tools tend to generate sites that look good but ship with thin or missing SEO: no meta descriptions, weak titles, no structured data. EZLaunch analyzes a deployed site and improves these directly, so a non-technical user gets reasonable on-page SEO without knowing what a meta tag is. On <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>, <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>, or <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare</a>, SEO is entirely your problem to solve with separate tools or manual editing.</p>
+          </div>
+
+          <div class="page-blog-post__feature">
+            <h3>The AI Editor</h3>
+            <p>You can change your site by describing what you want in plain language — "make the headline bigger," "change the contact email," "add a section about pricing" — without opening a code editor. For someone who generated a site from a prompt and doesn't write code, this is the difference between being able to maintain their site and being stuck with whatever the AI first produced. No major static host offers in-place natural-language editing of your files.</p>
+          </div>
+
+          <p>These two are the genuine moat. If your question is simply "where do I put my files," any host works. If it's "where can I host a site <em>and</em> keep improving it without learning to code," that's a much shorter list.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Cost and best use at a glance</h2>
+          <p>Free tiers tell you little here, because the interesting comparison is what you get at the entry paid tier — roughly $5/month — where the differences in what's <em>included</em> show up.</p>
+
+          <div class="page-blog-post__table-wrap">
+            <table class="page-blog-post__table">
+              <thead>
+                <tr>
+                  <th scope="col">Platform</th>
+                  <th scope="col">Entry paid tier</th>
+                  <th scope="col">What's included</th>
+                  <th scope="col">Best for</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a></td>
+                  <td>Free only</td>
+                  <td>Static hosting, custom domain, SSL. No forms, analytics, or SEO tooling.</td>
+                  <td>Plain static HTML, docs sites, open-source project pages</td>
+                </tr>
+                <tr>
+                  <td><a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a></td>
+                  <td>~$5/mo (Workers Paid)</td>
+                  <td>Unlimited bandwidth, custom domain, SSL. Forms, analytics, and SEO are DIY via Workers plus other tools.</td>
+                  <td>High-traffic static sites, Astro, Hugo, edge-heavy projects</td>
+                </tr>
+                <tr>
+                  <td><a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a></td>
+                  <td>$9/mo (Personal)</td>
+                  <td>Forms (free, unlimited), custom domain, SSL, build pipeline. Analytics is a separate add-on; no AI SEO or AI editing.</td>
+                  <td>React, Vue, and Astro frontends, JAMstack, growing teams</td>
+                </tr>
+                <tr>
+                  <td><a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a></td>
+                  <td>$20/mo (Pro, per member)</td>
+                  <td>Full-stack and serverless, first-party Next.js support, custom domain, SSL. SEO and editing are DIY.</td>
+                  <td>Next.js apps, server-side rendering, full-stack and dynamic apps</td>
+                </tr>
+                <tr class="page-blog-post__table-row--highlight">
+                  <td><a href="https://ezlaunch.app">EZLaunch</a></td>
+                  <td>$5/mo (Starter)</td>
+                  <td>Analytics, AI SEO optimizer, AI Editor, image and asset CDN, forms, 1 custom domain, SSL, ZIP/HTML deploy, all bundled.</td>
+                  <td>AI-generated static HTML sites you want live, SEO-ready, and editable without code</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <p>The pattern: the big platforms compete on infrastructure scale and developer features, and they win there. Bandwidth, full-stack support, and room to grow are theirs. EZLaunch competes on <em>value density</em> for a small static site. At $5/mo, analytics, SEO help, asset hosting, a custom domain, and AI editing come in one plan. Matching that bundle elsewhere means paying for add-ons (<a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>'s analytics alone costs more than EZLaunch's entire plan) and wiring up separate tools for SEO and editing.</p>
+          <p>A few honest caveats:</p>
+          <ul class="page-blog-post__list">
+            <li><a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare</a>'s free tier is unusually generous — unlimited bandwidth and requests — with a paywall only for team features, more builds, or Workers. For raw hosting at scale, it's the cheapest, full stop.</li>
+            <li><a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a> made form submissions free and unlimited across its credit-based plans in 2026, so forms are no longer a premium feature there, but its built-in analytics remain a paid add-on.</li>
+            <li><a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>'s free Hobby plan is for personal, non-commercial use; commercial sites require Pro.</li>
+            <li>Free tiers across all of them look similar on paper, but a $0 bill today doesn't guarantee a $0 bill next month. Model your expected traffic against each platform's overage pricing before committing.</li>
+          </ul>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>A simple decision path</h2>
+          <ul class="page-blog-post__list">
+            <li><strong>You have a folder of static files and want it live with minimal steps:</strong> any of these work; <a href="https://ezlaunch.app">EZLaunch</a> or <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a> are the lowest-friction.</li>
+            <li><strong>Your project has a build step but is static at the end:</strong> <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a>, <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a>, and <a href="https://pages.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare Pages</a> build automatically from a repo. EZLaunch works if you run the build locally and upload the output.</li>
+            <li><strong>You built a full-stack app (server routes, SSR, a self-hosted database):</strong> <a href="https://vercel.com" target="_blank" rel="noopener noreferrer">Vercel</a> for <a href="https://nextjs.org" target="_blank" rel="noopener noreferrer">Next.js</a>, or <a href="https://www.netlify.com" target="_blank" rel="noopener noreferrer">Netlify</a> and <a href="https://replit.com" target="_blank" rel="noopener noreferrer">Replit</a> depending on the stack. A static host won't run your server code.</li>
+            <li><strong>You want a free, permanent home for a personal or docs site:</strong> <a href="https://pages.github.com" target="_blank" rel="noopener noreferrer">GitHub Pages</a> or the free tier of any of the above.</li>
+            <li><strong>You want a static site that's live, SEO-ready, and editable without code:</strong> this is the specific case <a href="https://ezlaunch.app">EZLaunch</a> is built for.</li>
+          </ul>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>The one thing that trips people up</h2>
+          <p>The most common deployment failure has nothing to do with the host: it's deploying source code instead of built output. If your AI tool gave you a React or Astro project and you upload the <em>source</em> folder, you'll get a blank page or a wall of errors, because browsers can't run that code directly. You need to run the build step first (<code>npm run build</code> or equivalent) and deploy the resulting <code>dist</code> or <code>build</code> folder.</p>
+          <p>If your site is plain HTML, CSS, and JS with no build step, ignore all of that and just deploy the files as-is.</p>
+        </section>
+
+        <section class="page-blog-post__section page-blog-post__section--closing">
+          <h2>In short</h2>
+          <p>The tool that generated your site matters less than what kind of site it is. Identify whether you have static files, a build step, or a full-stack app, and the right host follows. The big platforms are the powerful default for anything that will grow into a real application, and <a href="https://www.cloudflare.com" target="_blank" rel="noopener noreferrer">Cloudflare</a> is unbeatable on free bandwidth. For the narrower but very common case — an AI-generated static site you want live, SEO-ready, and editable without touching code — <a href="https://ezlaunch.app">EZLaunch</a> bundles those pieces into one low-cost plan, trading infrastructure scale for a finished result out of the box.</p>
+          <p class="page-blog-post__disclosure">Disclosure: EZLaunch is a product I build. I've tried to give every platform here a fair and accurate description; check current pricing on each provider's site before deciding, since these numbers change.</p>
+        </section>
+      </div>
+
+      <aside class="page-blog-post__cta">
+        <p class="page-blog-post__cta-text">Ready to deploy your AI-built site?</p>
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="btn-primary">Get started free</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../index.html" class="footer__brand-logo">
+          <img class="footer__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+        </a>
+        <p class="footer__tagline">Static hosting for AI-generated websites.</p>
+        <div class="footer__social">
+          <a class="footer__social-link" href="https://x.com/EZlaunchapp" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on X">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.facebook.com/profile.php?id=61590129630123" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on Facebook">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/company/ezlaunchapp/" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on LinkedIn">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Product</p>
+          <ul>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../index.html#how-it-works">CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Assets</p>
+          <ul>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../prompt-library.html">Prompt Library</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Developers</p>
+          <ul>
+            <li><a href="https://docs.ezlaunch.app">Docs</a></li>
+            <li><a href="https://github.com/Roosterfishdev/ezlaunch-cli" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 EZLaunch. All rights reserved.</p>
+    </div>
+    <div class="footer__bottom">
+      <a href="../terms.html">Terms</a>
+      <span aria-hidden="true">·</span>
+      <a href="../privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../status.html">Status</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://docs.ezlaunch.app">Docs</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
+  <script src="../js/meta-pixel.js" defer></script>
+</body>
+</html>
