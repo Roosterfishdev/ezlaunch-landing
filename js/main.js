@@ -41,25 +41,36 @@
         });
       }
 
+      /* ─── Hero: how it works button ─── */
+      const heroHowBtn = document.getElementById('hero-how-it-works-btn');
+      const howSection = document.getElementById('how-it-works');
+      if (heroHowBtn && howSection) {
+        heroHowBtn.addEventListener('click', () => {
+          howSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        });
+      }
+
       /* ─── Hero badge: rotating audience label ─── */
       const badgeRotate = document.getElementById('hero-badge-rotate');
-      if (badgeRotate && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      const badgeInner = badgeRotate && badgeRotate.closest('.hero__badge-inner');
+      if (badgeRotate && badgeInner && !window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
         const BADGE_PHRASES = ['AI Builders', 'Vibe Coders', 'Developers', 'Owners', 'Designers'];
         const BADGE_INTERVAL_MS = 2800;
         const BADGE_FADE_MS = 400;
         let badgeIndex = 0;
 
-        const probe = document.createElement('span');
-        probe.className = badgeRotate.className;
-        probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;pointer-events:none;';
-        document.body.appendChild(probe);
-        let badgeMaxWidth = 0;
-        BADGE_PHRASES.forEach((phrase) => {
-          probe.textContent = phrase;
-          badgeMaxWidth = Math.max(badgeMaxWidth, probe.offsetWidth);
-        });
-        probe.remove();
-        badgeRotate.style.minWidth = `${badgeMaxWidth}px`;
+        function syncBadgeWidth() {
+          const currentWidth = badgeInner.offsetWidth;
+          badgeInner.style.width = `${currentWidth}px`;
+          badgeInner.style.width = 'auto';
+          const nextWidth = badgeInner.offsetWidth;
+          badgeInner.style.width = `${currentWidth}px`;
+          requestAnimationFrame(() => {
+            badgeInner.style.width = `${nextWidth}px`;
+          });
+        }
+
+        badgeInner.style.width = `${badgeInner.offsetWidth}px`;
 
         const cycleBadgePhrase = () => {
           badgeRotate.classList.add('is-out');
@@ -67,6 +78,7 @@
             badgeIndex = (badgeIndex + 1) % BADGE_PHRASES.length;
             badgeRotate.textContent = BADGE_PHRASES[badgeIndex];
             badgeRotate.classList.remove('is-out');
+            syncBadgeWidth();
           }, BADGE_FADE_MS);
         };
 
@@ -187,118 +199,4 @@
       } else if (terminal) {
         terminal.classList.add('is-visible');
       }
-
-      /* ─── ZIP mockup animation (loops) ─── */
-      const ZIP_DEPLOY_MS = 1200;
-      const ZIP_STEP_GAP_MS = 290;
-      const ZIP_DEPLOY_FINISH_MS = ZIP_DEPLOY_MS + ZIP_STEP_GAP_MS * 4 + 420;
-      const ZIP_LIVE_MS = ZIP_DEPLOY_FINISH_MS + 320;
-      const ZIP_PREVIEW_MS = ZIP_LIVE_MS + 920;
-      const ZIP_PREVIEW_HOLD_MS = 6200;
-
-      const panelZip = document.getElementById('flow-zip');
-      if (!panelZip) return;
-
-      let cycleTimer = null;
-      let stepTimers = [];
-
-      function clearTimers() {
-        stepTimers.forEach(id => {
-          clearTimeout(id);
-          clearInterval(id);
-        });
-        stepTimers = [];
-        if (cycleTimer) clearTimeout(cycleTimer);
-        cycleTimer = null;
-      }
-
-      function schedule(fn, ms) {
-        const id = setTimeout(fn, ms);
-        stepTimers.push(id);
-        return id;
-      }
-
-      function resetDeploySteps() {
-        for (let i = 1; i <= 4; i++) {
-          const el = document.getElementById('zip-step-' + i);
-          el.classList.remove('deploy-step--active', 'deploy-step--done', 'deploy-step--muted');
-          el.classList.add('deploy-step--pending');
-        }
-      }
-
-      function setDeployActive(activeIx) {
-        for (let i = 1; i <= 4; i++) {
-          const el = document.getElementById('zip-step-' + i);
-          el.classList.remove('deploy-step--pending', 'deploy-step--active', 'deploy-step--done', 'deploy-step--muted');
-          if (i < activeIx) el.classList.add('deploy-step--done');
-          else if (i === activeIx) el.classList.add('deploy-step--active');
-          else el.classList.add('deploy-step--pending');
-        }
-      }
-
-      function setAllDeployDone() {
-        for (let i = 1; i <= 4; i++) {
-          const el = document.getElementById('zip-step-' + i);
-          el.classList.remove('deploy-step--pending', 'deploy-step--active');
-          el.classList.add('deploy-step--done');
-          if (i === 4) el.classList.add('deploy-step--muted');
-        }
-      }
-
-      function resetZipFlow() {
-        panelZip.classList.add('resetting');
-        panelZip.dataset.stage = 'idle';
-
-        const dropZone = document.getElementById('zip-drop');
-        dropZone.classList.remove('dimmed', 'is-landing');
-
-        const zipBrowser = document.getElementById('zip-browser');
-        zipBrowser.classList.remove('visible');
-
-        resetDeploySteps();
-
-        requestAnimationFrame(() => {
-          requestAnimationFrame(() => panelZip.classList.remove('resetting'));
-        });
-      }
-
-      function runZipAnimation() {
-        resetZipFlow();
-
-        const dropZone = document.getElementById('zip-drop');
-
-        schedule(() => {
-          panelZip.dataset.stage = 'drop';
-          dropZone.classList.add('is-landing');
-          schedule(() => dropZone.classList.remove('is-landing'), 920);
-        }, 300);
-
-        schedule(() => {
-          panelZip.dataset.stage = 'deploy';
-          setDeployActive(1);
-        }, ZIP_DEPLOY_MS);
-
-        schedule(() => setDeployActive(2), ZIP_DEPLOY_MS + ZIP_STEP_GAP_MS);
-        schedule(() => setDeployActive(3), ZIP_DEPLOY_MS + ZIP_STEP_GAP_MS * 2);
-        schedule(() => setDeployActive(4), ZIP_DEPLOY_MS + ZIP_STEP_GAP_MS * 3);
-        schedule(() => setAllDeployDone(), ZIP_DEPLOY_FINISH_MS);
-
-        schedule(() => {
-          panelZip.dataset.stage = 'live';
-        }, ZIP_LIVE_MS);
-
-        schedule(() => {
-          panelZip.dataset.stage = 'preview';
-          document.getElementById('zip-browser').classList.add('visible');
-        }, ZIP_PREVIEW_MS);
-      }
-
-      function runZipDemoLoop() {
-        clearTimers();
-        runZipAnimation();
-
-        cycleTimer = setTimeout(runZipDemoLoop, ZIP_PREVIEW_MS + ZIP_PREVIEW_HOLD_MS);
-      }
-
-      runZipDemoLoop();
     })();

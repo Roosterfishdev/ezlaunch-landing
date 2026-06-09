@@ -221,17 +221,16 @@
       overflow: hidden;
     }
 
-    .hero__grid {
+    .hero__stack {
       position: relative;
       z-index: 1;
-      max-width: var(--layout-max);
+      max-width: 720px;
       margin: 0 auto;
       width: 100%;
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
-      gap: 56px 56px;
+      display: flex;
+      flex-direction: column;
       align-items: center;
-      min-height: calc(100vh - var(--nav-total-offset) - 80px);
+      gap: 0;
     }
 
     /* Hero background — white center, soft lavender sides */
@@ -341,8 +340,8 @@
     .hero__content {
       display: flex;
       flex-direction: column;
-      align-items: flex-start;
-      text-align: left;
+      align-items: center;
+      text-align: center;
       width: 100%;
       max-width: none;
       animation: heroFadeUp 0.9s cubic-bezier(0.22, 1, 0.36, 1) both;
@@ -409,6 +408,8 @@
       font-size: 14px;
       font-weight: 600;
       letter-spacing: 0.01em;
+      box-sizing: border-box;
+      transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
     }
 
     .hero__badge-icon {
@@ -421,7 +422,6 @@
 
     .hero__badge-rotate {
       display: inline-block;
-      text-align: left;
       vertical-align: baseline;
       transition: opacity 0.4s cubic-bezier(0.22, 1, 0.36, 1),
         transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
@@ -539,6 +539,209 @@
 
     .hero__proof span {
       color: var(--primary);
+    }
+
+    /* Hero drop & preview */
+    .hero-preview {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+
+    .hero-preview__frame {
+      position: relative;
+      display: grid;
+      width: 100%;
+      border-radius: 16px;
+    }
+
+    .hero-preview__frame > .hero-preview__dropzone,
+    .hero-preview__frame > .hero-preview__border {
+      grid-area: 1 / 1;
+    }
+
+    .hero-preview__border {
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2;
+      overflow: visible;
+    }
+
+    .hero-preview__border path {
+      fill: none;
+      vector-effect: non-scaling-stroke;
+      stroke-width: 2px;
+    }
+
+    .hero-preview__border-track {
+      stroke: rgba(99, 102, 241, 0.32);
+      stroke-dasharray: 4 8;
+    }
+
+    .hero-preview__border-glow {
+      stroke: #818cf8;
+      stroke-dasharray: 4 8;
+      stroke-linecap: round;
+      filter: drop-shadow(0 0 3px rgba(99, 102, 241, 0.75));
+      animation: heroPreviewDotMarch 1.6s linear infinite;
+    }
+
+    @keyframes heroPreviewDotMarch {
+      to { stroke-dashoffset: -12; }
+    }
+
+    .hero-preview__dropzone {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      min-height: 168px;
+      padding: 32px 28px;
+      border: none;
+      border-radius: 16px;
+      background: linear-gradient(165deg, #fafaff 0%, #eef2ff 48%, #f5f3ff 100%);
+      color: var(--text-dark);
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        0 12px 40px rgba(99, 102, 241, 0.08);
+      transition: background 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, opacity 0.2s ease;
+    }
+
+    .hero-preview__frame:has(.hero-preview__dropzone.is-dragover) .hero-preview__border-glow {
+      stroke: #6366f1;
+      animation-duration: 0.9s;
+      filter: drop-shadow(0 0 5px rgba(99, 102, 241, 0.95));
+    }
+
+    .hero-preview__dropzone:hover {
+      background: linear-gradient(165deg, #ffffff 0%, #e8ebff 55%, #f0f2ff 100%);
+      box-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.95) inset,
+        0 16px 48px rgba(99, 102, 241, 0.16);
+      transform: translateY(-2px);
+    }
+
+    .hero-preview__dropzone:focus-visible {
+      outline: 2px solid var(--primary);
+      outline-offset: 4px;
+    }
+
+    .hero-preview[data-state="uploading"] .hero-preview__border-glow {
+      animation-duration: 0.8s linear infinite;
+    }
+
+    .hero-preview[data-state="uploading"] .hero-preview__dropzone {
+      pointer-events: none;
+      opacity: 0.92;
+      cursor: wait;
+      transform: none;
+    }
+
+    .hero-preview__dropzone.is-dragover {
+      background: linear-gradient(165deg, #ffffff 0%, #e0e7ff 100%);
+      box-shadow:
+        0 0 0 1px rgba(99, 102, 241, 0.2) inset,
+        0 20px 56px rgba(99, 102, 241, 0.22);
+      transform: scale(1.01);
+    }
+
+    .hero-preview__idle .hero-preview__icon {
+      animation: heroPreviewIconFloat 2.8s ease-in-out infinite;
+    }
+
+    @keyframes heroPreviewIconFloat {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .hero-preview__idle,
+    .hero-preview__ready,
+    .hero-preview__loading {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .hero-preview__ready {
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
+
+    .hero-preview__loading {
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .hero-preview[data-state="idle"] .hero-preview__ready,
+    .hero-preview[data-state="idle"] .hero-preview__loading,
+    .hero-preview[data-state="error"] .hero-preview__ready,
+    .hero-preview[data-state="error"] .hero-preview__loading,
+    .hero-preview[data-state="ready"] .hero-preview__idle,
+    .hero-preview[data-state="ready"] .hero-preview__loading,
+    .hero-preview[data-state="uploading"] .hero-preview__idle,
+    .hero-preview[data-state="uploading"] .hero-preview__ready {
+      display: none;
+    }
+
+    .hero-preview[data-state="ready"] .hero-preview__ready,
+    .hero-preview[data-state="uploading"] .hero-preview__loading {
+      display: flex;
+    }
+
+    .hero-preview__icon {
+      width: 48px;
+      height: 48px;
+      flex-shrink: 0;
+    }
+
+    .hero-preview__icon--sm {
+      width: 36px;
+      height: 36px;
+    }
+
+    .hero-preview__filename {
+      color: var(--primary);
+      font-weight: 700;
+      word-break: break-all;
+    }
+
+    .hero-preview__hint {
+      margin: 12px 0 0;
+      font-size: 14px;
+      color: var(--text-gray);
+      font-weight: 500;
+    }
+
+    .hero-preview__learn-btn {
+      margin: 14px auto 0;
+      padding: 12px 22px;
+      font-size: 15px;
+    }
+
+    .hero-preview__error {
+      margin: 14px 0 0;
+      padding: 12px 16px;
+      border-radius: 10px;
+      background: #fef2f2;
+      border: 1px solid rgba(239, 68, 68, 0.25);
+      color: #b91c1c;
+      font-size: 14px;
+      line-height: 1.5;
+      text-align: left;
+    }
+
+    .hero-preview__error[hidden] {
+      display: none;
     }
 
     /* ─── Browser Mockup ─── */
@@ -3666,9 +3869,8 @@
         --layout-gutter: 32px;
       }
 
-      .hero__grid {
-        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-        gap: 48px 40px;
+      .hero__stack {
+        max-width: 100%;
       }
 
       .hero__headline {
@@ -3752,9 +3954,8 @@
         padding: var(--nav-total-offset) var(--layout-gutter) 60px;
       }
 
-      .hero__grid {
-        grid-template-columns: 1fr;
-        gap: 48px;
+      .hero__stack {
+        gap: 0;
         min-height: auto;
       }
 
@@ -3764,32 +3965,10 @@
         max-width: 100%;
       }
 
-      .hero__ctas {
-        flex-direction: row;
-        flex-wrap: nowrap;
-        justify-content: center;
-        align-items: stretch;
-        gap: 10px;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      .hero__ctas .btn-primary,
-      .hero__ctas .btn-ghost {
-        flex: 0 1 auto;
-        padding: 12px 20px;
-        font-size: 15px;
-        line-height: 1.2;
-        min-height: 44px;
-        white-space: nowrap;
-      }
-
-      .hero__ctas .btn-short {
-        display: inline;
-      }
-
-      .hero__ctas .btn-full {
-        display: none;
+      .hero-preview__dropzone {
+        min-height: 140px;
+        padding: 28px 20px;
+        font-size: 16px;
       }
 
       .hero__proof {

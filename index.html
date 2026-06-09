@@ -71,7 +71,7 @@
       <div class="hero__dots hero__dots--left"></div>
       <div class="hero__dots hero__dots--right"></div>
     </div>
-    <div class="hero__grid">
+    <div class="hero__stack">
       <div class="hero__content">
         <span class="hero__badge" aria-live="polite">
           <span class="hero__badge-inner">
@@ -81,158 +81,53 @@
         </span>
         <h1 class="hero__headline">Host your AI-generated website in seconds.</h1>
         <p class="hero__subheadline">Drop a ZIP or connect GitHub. Your site is live in seconds, with SSL, analytics, SEO optimization and forms included.</p>
-        <div class="hero__ctas">
-          <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="btn-primary">
-            <span class="btn-short">Get started</span>
-            <span class="btn-full">Get started free</span>
-          </a>
-          <a href="#how-it-works" class="btn-ghost">
-            <span class="btn-short">How it works →</span>
-            <span class="btn-full">See how it works →</span>
-          </a>
-        </div>
-        <p class="hero__proof">Join developers already hosting on <span>EZLaunch</span> · Free to start</p>
-      </div>
 
-      <div class="mockup-wrapper">
-      <div class="mockup-card">
-        <div class="mockup-tabs">
-          <button type="button" class="mockup-tab mockup-tab--active" aria-current="true">ZIP Upload</button>
-          <button type="button" class="mockup-tab mockup-tab--static" tabindex="-1">GitHub</button>
-        </div>
-        <div class="mockup-body">
-
-          <!-- ZIP Upload Flow -->
-          <div class="flow-panel active" id="flow-zip" data-flow="zip" data-stage="idle">
-            <div class="zip-stages">
-              <div class="zip-drop-wrapper">
-                <div class="zip-file-float" id="zip-float" aria-hidden="true">
-                  <svg viewBox="0 0 72 72" xmlns="http://www.w3.org/2000/svg" fill="none">
-                    <path d="M10 54V26q0-6 6-6h12l4-5h22q8 0 8 8v31q0 6-6 6H16q-6 0-6-6Z" fill="#4338CA"/>
-                    <path d="M12 52V27q0-4 5-4h11l4-5h19q5 0 5 5v29q0 4-4 4H17q-5 0-5-5Z" fill="#818CF8"/>
-                    <path d="M14 50V31q0-3 3-3h38q3 0 3 3v19q0 3-3 3H17q-3 0-3-3Z" fill="#EEF2FF" stroke="#6366F1" stroke-width="1.25"/>
-                    <path d="M33 37v12m3.5-10.5 6 6 6-6" stroke="#6366F1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                    <rect x="23" y="33" width="12" height="10" rx="1.5" fill="#FFF" stroke="#6366F1" stroke-width="1.25"/>
-                    <path d="M26 36h6M26 39h4" stroke="#6366F1" stroke-width="1.2" stroke-linecap="round"/>
-                  </svg>
-                </div>
-                <div class="drop-zone" id="zip-drop">
-                  <span class="drop-zone__text" id="zip-drop-text">Drag & drop your site.zip</span>
-                  <span class="drop-zone__filename" id="zip-filename">mysite.zip · 2.4 MB</span>
-                </div>
-              </div>
-              <div class="deploy-panel" id="zip-deploy">
-                <div class="deploy-panel__hero">
-                  <div class="deploy-spinner deploy-spinner--lg" aria-hidden="true"></div>
-                  <p class="deploy-panel__title">Deploying your site...</p>
-                </div>
-                <ol class="deploy-steps">
-                  <li class="deploy-step deploy-step--pending" id="zip-step-1">
-                    <span class="deploy-step__icon">
-                      <span class="deploy-step__num">1</span>
-                      <span class="deploy-step__spin"></span>
-                      <span class="deploy-step__check">
-                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </span>
-                    </span>
-                    <span class="deploy-step__label">Validating...</span>
-                  </li>
-                  <li class="deploy-step deploy-step--pending" id="zip-step-2">
-                    <span class="deploy-step__icon">
-                      <span class="deploy-step__num">2</span>
-                      <span class="deploy-step__spin"></span>
-                      <span class="deploy-step__check">
-                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </span>
-                    </span>
-                    <span class="deploy-step__label">Extracting files...</span>
-                  </li>
-                  <li class="deploy-step deploy-step--pending" id="zip-step-3">
-                    <span class="deploy-step__icon">
-                      <span class="deploy-step__num">3</span>
-                      <span class="deploy-step__spin"></span>
-                      <span class="deploy-step__check">
-                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </span>
-                    </span>
-                    <span class="deploy-step__label">Uploading to CDN...</span>
-                  </li>
-                  <li class="deploy-step deploy-step--pending" id="zip-step-4">
-                    <span class="deploy-step__icon">
-                      <span class="deploy-step__num">4</span>
-                      <span class="deploy-step__spin"></span>
-                      <span class="deploy-step__check">
-                        <svg viewBox="0 0 14 14" fill="none"><path d="M2.5 7.5L5.5 10.5L11.5 3.5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                      </span>
-                    </span>
-                    <span class="deploy-step__label">Done</span>
-                  </li>
-                </ol>
-              </div>
-              <div class="zip-live-msg" id="zip-live-msg">
-                <span class="zip-live-msg__check">
-                  <svg viewBox="0 0 18 18" fill="none"><path d="M4 9l3.5 3.5L14 6" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                </span>
-                <span class="zip-live-msg__text">Your site is live</span>
-              </div>
-            </div>
-            <div class="browser-preview" id="zip-browser">
-              <div class="browser-chrome">
-                <div class="traffic-lights">
-                  <span class="traffic-light traffic-light--red"></span>
-                  <span class="traffic-light traffic-light--yellow"></span>
-                  <span class="traffic-light traffic-light--green"></span>
-                </div>
-                <div class="url-bar">
-                  <span class="ssl-badge">
-                    <svg viewBox="0 0 12 12" fill="currentColor"><path d="M6 1L2 2.5v3C2 7.5 3.8 9.8 6 11c2.2-1.2 4-3.5 4-5.5v-3L6 1z"/></svg>
-                    SSL
-                  </span>
-                  <span class="url-bar__domain">mysite.ezlaunch.app</span>
-                </div>
-              </div>
-              <div class="browser-content">
-                <div class="site-preview">
-                  <nav class="site-preview__nav">
-                    <div class="site-preview__brand">
-                      <span class="site-preview__dot"></span>
-                      <div class="site-preview__links">
-                        <span class="site-preview__link-dash"></span>
-                        <span class="site-preview__link-dash"></span>
-                        <span class="site-preview__link-dash"></span>
-                      </div>
-                    </div>
-                    <span class="site-preview__cta-mini">Hire me</span>
-                  </nav>
-                  <div class="site-preview__hero">
-                    <div class="site-preview__accent"></div>
-                    <h2>Alex Rivera</h2>
-                    <p>Designer & developer building thoughtful interfaces.</p>
-                  </div>
-                  <div class="site-preview__cards">
-                    <div class="site-preview__card">
-                      <div class="site-preview__card-thumb"></div>
-                      <div class="site-preview__card-body">
-                        <div class="site-preview__card-title">Neon Atlas</div>
-                        <div class="site-preview__card-meta">Brand · Web</div>
-                      </div>
-                    </div>
-                    <div class="site-preview__card">
-                      <div class="site-preview__card-thumb"></div>
-                      <div class="site-preview__card-body">
-                        <div class="site-preview__card-title">Pulse CRM</div>
-                        <div class="site-preview__card-meta">Product UI</div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <span class="live-pulse"><span class="live-pulse__dot"></span> Live</span>
-              </div>
-            </div>
+        <div class="hero-preview" id="hero-preview" data-state="idle">
+          <input
+            type="file"
+            id="hero-preview-input"
+            class="hero-preview__input"
+            accept=".zip,application/zip"
+            hidden
+          />
+          <div class="hero-preview__frame">
+            <svg class="hero-preview__border" aria-hidden="true" focusable="false">
+              <path class="hero-preview__border-track" />
+              <path class="hero-preview__border-glow" />
+            </svg>
+            <button
+              type="button"
+              class="hero-preview__dropzone"
+              id="hero-preview-dropzone"
+              aria-controls="hero-preview-input"
+            >
+            <span class="hero-preview__idle">
+              <svg class="hero-preview__icon" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M8 36V18q0-4 4-4h8l3-4h14q5 0 5 5v21q0 4-4 4H12q-4 0-4-4Z" fill="#4338CA"/>
+                <path d="M10 34V20q0-3 3-3h7l3-4h12q3 0 3 3v18q0 3-3 3H13q-3 0-3-3Z" fill="#818CF8"/>
+                <path d="M12 32V22q0-2 2-2h24q2 0 2 2v10q0 2-2 2H14q-2 0-2-2Z" fill="#EEF2FF" stroke="#6366F1" stroke-width="1"/>
+                <path d="M22 25v8m2.5-7 4 4 4-4" stroke="#6366F1" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Drop your site.zip here
+            </span>
+            <span class="hero-preview__ready">
+              <svg class="hero-preview__icon hero-preview__icon--sm" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+                <path d="M8 36V18q0-4 4-4h8l3-4h14q5 0 5 5v21q0 4-4 4H12q-4 0-4-4Z" fill="#4338CA"/>
+                <path d="M10 34V20q0-3 3-3h7l3-4h12q3 0 3 3v18q0 3-3 3H13q-3 0-3-3Z" fill="#818CF8"/>
+              </svg>
+              <span class="hero-preview__filename" id="hero-preview-filename"></span>
+            </span>
+            <span class="hero-preview__loading">
+              <span class="deploy-spinner deploy-spinner--lg" aria-hidden="true"></span>
+              Deploying your site…
+            </span>
+          </button>
           </div>
-
+          <button type="button" class="btn-ghost hero-preview__learn-btn" id="hero-how-it-works-btn">See how it works →</button>
+          <p class="hero-preview__error" id="hero-preview-error" role="alert" hidden></p>
         </div>
-      </div>
+
+        <p class="hero__proof">Join developers already hosting on <span>EZLaunch</span> · Free to start</p>
       </div>
     </div>
   </section>
@@ -857,6 +752,7 @@
   </a>
 
   <script src="js/main.js"></script>
+  <script src="js/hero-preview.js"></script>
 
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
   <script src="js/meta-pixel.js" defer></script>
