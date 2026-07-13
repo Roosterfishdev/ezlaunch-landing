@@ -654,6 +654,8 @@
     }
 
     .hero-preview__idle .hero-preview__icon {
+      width: 36px;
+      height: 36px;
       animation: heroPreviewIconFloat 2.8s ease-in-out infinite;
     }
 
@@ -3667,7 +3669,16 @@
 
     /* ─── Final CTA ─── */
     .cta-final {
-      padding: 100px var(--layout-gutter);
+      padding: 80px var(--layout-gutter);
+      background: var(--white);
+      text-align: center;
+    }
+
+    .cta-final__inner {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 64px 48px;
+      border-radius: 28px;
       background:
         radial-gradient(ellipse 70% 55% at 20% -8%, rgba(165, 180, 252, 0.45) 0%, transparent 50%),
         radial-gradient(ellipse 50% 40% at 85% 20%, rgba(165, 180, 252, 0.2) 0%, transparent 55%),
@@ -3677,27 +3688,21 @@
           rgba(165, 180, 252, 0.65) 70%,
           rgba(238, 242, 255, 0.35) 100%
         );
-      text-align: center;
-    }
-
-    .cta-final__inner {
-      max-width: 720px;
-      margin: 0 auto;
     }
 
     .cta-final__headline {
-      font-size: 52px;
+      font-size: 36px;
       font-weight: 800;
       color: var(--white);
-      letter-spacing: -0.035em;
-      line-height: 1.08;
-      margin-bottom: 16px;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      margin-bottom: 12px;
     }
 
     .cta-final__sub {
-      font-size: 18px;
+      font-size: 16px;
       color: rgba(255, 255, 255, 0.82);
-      margin-bottom: 32px;
+      margin-bottom: 28px;
       line-height: 1.55;
     }
 
@@ -3705,10 +3710,10 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 18px 40px;
+      padding: 14px 32px;
       background: var(--white);
       color: var(--primary);
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
       text-decoration: none;
       border-radius: 9999px;
@@ -4053,8 +4058,13 @@
         grid-template-columns: 1fr;
       }
 
+      .cta-final__inner {
+        padding: 48px 28px;
+        border-radius: 22px;
+      }
+
       .cta-final__headline {
-        font-size: clamp(36px, 9vw, 52px);
+        font-size: clamp(26px, 7vw, 36px);
       }
 
       .footer {
@@ -5409,5 +5419,36 @@
       .ez-badge__text {
         font-size: 9px;
         letter-spacing: 0.1em;
+      }
+    }
+
+    /* ─── Scroll reveal ─── */
+    .reveal {
+      opacity: 0;
+      translate: 0 18px;
+    }
+
+    .reveal.is-in {
+      animation: revealIn 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+      animation-delay: var(--reveal-delay, 0ms);
+    }
+
+    @keyframes revealIn {
+      from {
+        opacity: 0;
+        translate: 0 18px;
+      }
+      to {
+        opacity: 1;
+        translate: 0;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal,
+      .reveal.is-in {
+        opacity: 1;
+        translate: none;
+        animation: none;
       }
     }
