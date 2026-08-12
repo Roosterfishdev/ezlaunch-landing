@@ -115,6 +115,34 @@
           <textarea class="contact-input contact-textarea" id="contact-message" name="message" rows="5" required placeholder="Describe your issue in detail. Include your site URL if relevant."></textarea>
         </div>
 
+        <div class="contact-honeypot" aria-hidden="true">
+          <label for="contact-website">Website</label>
+          <input type="text" id="contact-website" name="website" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="contact-captcha" id="contact-captcha">
+          <p class="contact-captcha__label" id="contact-captcha-label">Verify you're human</p>
+          <div class="contact-captcha__row">
+            <span class="contact-captcha__prompt" id="contact-captcha-prompt" aria-hidden="true"></span>
+            <input
+              class="contact-input contact-captcha__input"
+              type="text"
+              inputmode="numeric"
+              id="contact-captcha-answer"
+              name="captcha"
+              required
+              autocomplete="off"
+              aria-labelledby="contact-captcha-label contact-captcha-prompt"
+            >
+            <button type="button" class="contact-captcha__refresh" id="contact-captcha-refresh" aria-label="New captcha">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+                <path d="M13.5 8A5.5 5.5 0 1 1 11.2 3.4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+                <path d="M11.5 1.5v3h-3" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </button>
+          </div>
+        </div>
+
         <button type="submit" class="contact-submit">
           <span class="contact-submit__text">Send message</span>
         </button>

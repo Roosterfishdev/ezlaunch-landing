@@ -8,7 +8,25 @@
   const successText = document.getElementById('contact-success-text');
   const resetBtn = document.getElementById('contact-reset');
   const submitBtn = form.querySelector('.contact-submit');
+  const captchaPrompt = document.getElementById('contact-captcha-prompt');
+  const captchaInput = document.getElementById('contact-captcha-answer');
+  const captchaRefresh = document.getElementById('contact-captcha-refresh');
+  const honeypot = document.getElementById('contact-website');
   const EZLAUNCH_FORM_ACTION = /^https:\/\/app\.ezlaunch\.app\/api\/forms\//;
+  const MIN_FILL_MS = 4000;
+  let captchaAnswer = '';
+  let formReadyAt = Date.now() + MIN_FILL_MS;
+
+  function refreshCaptcha() {
+    const a = 2 + Math.floor(Math.random() * 10);
+    const b = 2 + Math.floor(Math.random() * 10);
+    captchaAnswer = String(a + b);
+    if (captchaPrompt) captchaPrompt.textContent = a + ' + ' + b;
+    if (captchaInput) {
+      captchaInput.value = '';
+      captchaInput.setCustomValidity('');
+    }
+  }
 
   function showSuccess() {
     const email = form.querySelector('[name="email"]')?.value?.trim();
@@ -24,6 +42,8 @@
     form.hidden = false;
     if (successPanel) successPanel.hidden = true;
     form.reset();
+    refreshCaptcha();
+    formReadyAt = Date.now() + MIN_FILL_MS;
     clearError();
   }
 
@@ -54,8 +74,14 @@
     return response.ok;
   }
 
+  function captchaOk() {
+    return (captchaInput?.value || '').trim() === captchaAnswer;
+  }
+
   async function submitViaFetch(action) {
     const body = new FormData(form);
+    body.delete('website');
+    body.delete('captcha');
     const response = await fetch(action, {
       method: 'POST',
       body,
@@ -72,8 +98,22 @@
     if (!EZLAUNCH_FORM_ACTION.test(action)) return;
 
     event.preventDefault();
+    if (honeypot && honeypot.value.trim()) return;
+
+    if (!captchaOk()) {
+      captchaInput?.setCustomValidity('Solve the captcha to send your message.');
+      captchaInput?.reportValidity();
+      return;
+    }
+    captchaInput?.setCustomValidity('');
+
     if (!form.checkValidity()) {
       form.reportValidity();
+      return;
+    }
+
+    if (Date.now() < formReadyAt) {
+      showError('Please wait a moment and try again.');
       return;
     }
 
@@ -98,4 +138,8 @@
   if (resetBtn) {
     resetBtn.addEventListener('click', showForm);
   }
+
+  captchaRefresh?.addEventListener('click', refreshCaptcha);
+  captchaInput?.addEventListener('input', () => captchaInput.setCustomValidity(''));
+  refreshCaptcha();
 })();

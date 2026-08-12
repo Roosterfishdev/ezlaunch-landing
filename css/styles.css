@@ -4820,6 +4820,7 @@
     }
 
     .contact-form {
+      position: relative;
       display: flex;
       flex-direction: column;
       gap: 24px;
@@ -4971,6 +4972,71 @@
       font-size: 15px;
       line-height: 1.45;
       color: #B91C1C;
+    }
+
+    .contact-honeypot {
+      position: absolute;
+      left: -10000px;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+    }
+
+    .contact-captcha {
+      padding: 16px;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 12px;
+      background: #FAFBFF;
+    }
+
+    .contact-captcha__label {
+      font-family: 'Urbanist', var(--font-sans);
+      font-size: 14px;
+      font-weight: 600;
+      color: #1E1B4B;
+      margin-bottom: 10px;
+    }
+
+    .contact-captcha__row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .contact-captcha__prompt {
+      flex-shrink: 0;
+      font-family: 'Urbanist', var(--font-sans);
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      letter-spacing: 0.04em;
+      min-width: 4.5em;
+    }
+
+    .contact-captcha__input {
+      max-width: 96px;
+      text-align: center;
+    }
+
+    .contact-captcha__refresh {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      flex-shrink: 0;
+      border: 1.5px solid #E5E7EB;
+      border-radius: 10px;
+      background: var(--white);
+      color: var(--text-gray);
+      cursor: pointer;
+      transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+    }
+
+    .contact-captcha__refresh:hover {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: var(--accent-light);
     }
 
     .contact-success {
