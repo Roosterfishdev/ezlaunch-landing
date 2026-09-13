@@ -140,6 +140,23 @@
       return;
     }
 
+    // 429 carries which limit was hit (10-minute burst or daily) and a
+    // Retry-After; prefer the server's wording over the generic fallback.
+    if (res.status === 429) {
+      let serverMessage = '';
+      try {
+        const data = await res.json();
+        if (data && typeof data.error === 'string') serverMessage = data.error;
+      } catch (_) {}
+      const retryAfter = parseInt(res.headers.get('Retry-After') || '', 10);
+      if (!serverMessage && retryAfter > 0) {
+        const minutes = Math.max(1, Math.ceil(retryAfter / 60));
+        serverMessage = 'Too many preview uploads from your network. Try again in ' + minutes + ' minute' + (minutes === 1 ? '' : 's') + '.';
+      }
+      showError(serverMessage || ERROR_MESSAGES[429]);
+      return;
+    }
+
     const message = ERROR_MESSAGES[res.status] || ERROR_MESSAGES[500];
     showError(message);
   }
