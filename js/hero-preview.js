@@ -2,7 +2,8 @@
   'use strict';
 
   const DEPLOY_URL = 'https://app.ezlaunch.app/api/preview/deploy';
-  const MAX_BYTES = 500 * 1024 * 1024;
+  // Must match PREVIEW_MAX_BYTES in the app (app/api/preview/deploy → 413 above it).
+  const MAX_BYTES = 50 * 1024 * 1024;
 
   const root = document.getElementById('hero-preview');
   const input = document.getElementById('hero-preview-input');
@@ -61,8 +62,8 @@
   const ERROR_MESSAGES = {
     400: "That ZIP doesn't look valid. Make sure it contains an index.html at the root.",
     403: "Preview isn't available from this page. Visit ezlaunch.app and try again.",
-    413: 'That file is too large. ZIPs must be under 500 MB.',
-    429: 'Too many preview attempts. Wait a moment and try again.',
+    413: 'That ZIP is too large for a free preview. Keep it under 50 MB — sign up to publish bigger sites.',
+    429: 'Too many preview uploads from your network. Wait 10 minutes and try again.',
     500: 'Our preview service is temporarily unavailable. Please try again in a few minutes.',
     503: 'Our preview service is temporarily unavailable. Please try again in a few minutes.',
     network: "Couldn't reach the server. Check your connection and try again.",
