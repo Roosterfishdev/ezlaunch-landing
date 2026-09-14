@@ -194,14 +194,14 @@ ezlaunch deploy</code></pre>
 
         <section class="page-blog-post__section">
           <h2>Step 6: Add your custom domain</h2>
-          <p>In your site's <em>Settings → Custom Domain</em>, enter the domain. Then at your DNS provider add an A record pointing the domain to <code>87.99.143.176</code>. Back in EZLaunch click <em>Check DNS</em>. Once the record resolves, a Let's Encrypt certificate is issued automatically, usually within two minutes, and the site answers on your domain over HTTPS.</p>
+          <p>Custom domains start on the $5/mo Starter plan (one domain; Pro allows five, Agency unlimited). In your site's <em>Settings → Custom Domain</em>, enter the domain. Then at your DNS provider add an A record pointing the domain to <code>87.99.143.176</code>. Back in EZLaunch click <em>Check DNS</em>. Once the record resolves, a Let's Encrypt certificate is issued automatically, usually within two minutes, and the site answers on your domain over HTTPS.</p>
         </section>
 
         <section class="page-blog-post__section">
           <h2>Step 7: Make the contact form work</h2>
           <p>Lovable often generates a contact form that posts nowhere, or wires it to Supabase. EZLaunch can handle it without a backend. Ask Lovable to add one attribute to the form tag:</p>
           <pre><code>&lt;form data-ezlaunch name="contact"&gt;</code></pre>
-          <p>Rebuild and redeploy. EZLaunch injects the endpoint, adds honeypot spam protection, and shows submissions in your dashboard. Form submissions are included on paid plans; the free plan hosts the site but does not collect submissions.</p>
+          <p>Rebuild and redeploy. EZLaunch injects the endpoint, adds honeypot spam protection, and shows submissions in your dashboard. The free plan includes 100 submissions a month, Starter 1,000, and Pro and Agency unlimited.</p>
         </section>
 
         <section class="page-blog-post__section">
@@ -225,7 +225,7 @@ ezlaunch deploy</code></pre>
               <thead><tr><th></th><th>Lovable publish</th><th>EZLaunch</th></tr></thead>
               <tbody>
                 <tr><td>Setup</td><td>One click inside Lovable</td><td>Build locally, upload ZIP</td></tr>
-                <tr><td>Custom domain</td><td>Available on Lovable's paid plans</td><td>Included, free plan too</td></tr>
+                <tr><td>Custom domain</td><td>Available on Lovable's paid plans</td><td>From the $5/mo Starter plan (1 domain), 5 on Pro, unlimited on Agency</td></tr>
                 <tr><td>Forms without a backend</td><td>No</td><td>Yes, one attribute</td></tr>
                 <tr><td>Analytics</td><td>No</td><td>Included on every plan</td></tr>
                 <tr><td>Deploy from other tools too</td><td>Lovable projects only</td><td>Any static site: Bolt, v0, Claude Code, Cursor, hand-written</td></tr>
