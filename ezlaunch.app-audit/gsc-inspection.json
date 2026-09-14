@@ -1,0 +1,225 @@
+[
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=lj_vXDGCOZ0CRoByKeTwUw&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-06T18:08:08Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://ezlaunch.app/",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://vibecrowd.fund/sectors/developer-tools",
+        "https://www.ezlaunch.app/"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=u3put7-VM9lQYKn6xPkA0w&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-06T12:19:59Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://ezlaunch.app/blog",
+      "userCanonical": "https://ezlaunch.app/blog.html",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=APaJnvX4X21srxugyjCrgg&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-10T21:55:36Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://ezlaunch.app/prompt-library",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://ezlaunch.app/privacy",
+        "https://ezlaunch.app/blog"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=0NPcQJIzzvnNfw5zmqEtqg&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=gPIuVAUs08rkuMV_M5txLg&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "NEUTRAL",
+      "coverageState": "URL is unknown to Google",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=cZ2vSn0erhT9TJu3rtQX2Q&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-23T04:14:28Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://ezlaunch.app/status",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://ezlaunch.app/blog",
+        "https://ezlaunch.app/prompt-library"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=uXtBHKX6nsxDor6bDRWDSA&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://ezlaunch.app/blog"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=6VdiErzhn5l-xOrKJoy2nA&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-09-06T07:42:51Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://ezlaunch.app/terms",
+      "referringUrls": [
+        "https://ezlaunch.app/blog"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=dcbPaneT-c_YorInNQUsqg&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "NEUTRAL",
+      "coverageState": "Discovered - currently not indexed",
+      "robotsTxtState": "ROBOTS_TXT_STATE_UNSPECIFIED",
+      "indexingState": "INDEXING_STATE_UNSPECIFIED",
+      "pageFetchState": "PAGE_FETCH_STATE_UNSPECIFIED",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "crawledAs": "CRAWLING_USER_AGENT_UNSPECIFIED"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+,
+{
+  "inspectionResult": {
+    "inspectionResultLink": "https://search.google.com/search-console/inspect?resource_id=sc-domain:ezlaunch.app&id=9B04MfUIEKhTGjPPteya5w&utm_medium=link&utm_source=api",
+    "indexStatusResult": {
+      "verdict": "PASS",
+      "coverageState": "Submitted and indexed",
+      "robotsTxtState": "ALLOWED",
+      "indexingState": "INDEXING_ALLOWED",
+      "lastCrawlTime": "2026-08-09T05:20:31Z",
+      "pageFetchState": "SUCCESSFUL",
+      "googleCanonical": "https://ezlaunch.app/blog/html-websites-are-the-future",
+      "userCanonical": "https://ezlaunch.app/blog/html-websites-are-the-future.html",
+      "sitemap": [
+        "https://ezlaunch.app/sitemap.xml"
+      ],
+      "referringUrls": [
+        "https://ezlaunch.app/blog"
+      ],
+      "crawledAs": "MOBILE"
+    },
+    "mobileUsabilityResult": {
+      "verdict": "VERDICT_UNSPECIFIED"
+    }
+  }
+}
+]

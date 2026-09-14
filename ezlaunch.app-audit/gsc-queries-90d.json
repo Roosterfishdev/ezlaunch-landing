@@ -1,0 +1,59 @@
+{
+  "rows": [
+    {
+      "keys": [
+        "ezlaunch"
+      ],
+      "clicks": 16,
+      "impressions": 44,
+      "ctr": 0.36363636363636365,
+      "position": 4.795454545454545
+    },
+    {
+      "keys": [
+        "easy launch"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 77
+    },
+    {
+      "keys": [
+        "easylaunch"
+      ],
+      "clicks": 0,
+      "impressions": 2,
+      "ctr": 0,
+      "position": 54
+    },
+    {
+      "keys": [
+        "ez launcher"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 46
+    },
+    {
+      "keys": [
+        "ezhalloor"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 90
+    },
+    {
+      "keys": [
+        "launch eaze"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 59
+    }
+  ],
+  "responseAggregationType": "byProperty"
+}

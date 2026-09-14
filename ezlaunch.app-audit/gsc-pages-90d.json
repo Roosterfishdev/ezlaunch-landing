@@ -1,0 +1,95 @@
+{
+  "rows": [
+    {
+      "keys": [
+        "https://ezlaunch.app/"
+      ],
+      "clicks": 30,
+      "impressions": 115,
+      "ctr": 0.2608695652173913,
+      "position": 8.2956521739130444
+    },
+    {
+      "keys": [
+        "https://docs.ezlaunch.app/"
+      ],
+      "clicks": 2,
+      "impressions": 57,
+      "ctr": 0.035087719298245612,
+      "position": 12.210526315789474
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/status"
+      ],
+      "clicks": 2,
+      "impressions": 27,
+      "ctr": 0.07407407407407407,
+      "position": 4.0370370370370372
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/prompt-library"
+      ],
+      "clicks": 1,
+      "impressions": 17,
+      "ctr": 0.058823529411764705,
+      "position": 5.4705882352941178
+    },
+    {
+      "keys": [
+        "https://app.ezlaunch.app/"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/blog"
+      ],
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 12.157894736842104
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/blog.html"
+      ],
+      "clicks": 0,
+      "impressions": 3,
+      "ctr": 0,
+      "position": 7
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/blog/html-websites-are-the-future"
+      ],
+      "clicks": 0,
+      "impressions": 19,
+      "ctr": 0,
+      "position": 20.684210526315791
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/prompt-library.html"
+      ],
+      "clicks": 0,
+      "impressions": 1,
+      "ctr": 0,
+      "position": 5
+    },
+    {
+      "keys": [
+        "https://ezlaunch.app/terms"
+      ],
+      "clicks": 0,
+      "impressions": 28,
+      "ctr": 0,
+      "position": 2.75
+    }
+  ],
+  "responseAggregationType": "byPage"
+}
