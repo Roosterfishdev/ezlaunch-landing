@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.ezlaunch.app/sitemap.xml
+Sitemap: https://ezlaunch.app/sitemap.xml

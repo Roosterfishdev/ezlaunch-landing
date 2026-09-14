@@ -1,0 +1,208 @@
+{
+  "site": "https://ezlaunch.app",
+  "domain": "ezlaunch.app",
+  "audit_date": "2026-09-13",
+  "pages_crawled": 9,
+  "summary": {
+    "health_score": 50,
+    "business_type": "SaaS — static hosting for AI-generated websites",
+    "top_findings": [
+      "Sitemap lists www + .html URLs; all 9 entries are 2-hop 301 chains and robots.txt points to the www sitemap",
+      "Canonical tags missing on 6 of 9 pages; the 3 present point to redirecting .html URLs",
+      "Homepage has no structured data despite a 4-tier pricing table and feature grid",
+      "No gzip/brotli compression on HTML, CSS (123 KB) or JS; unused critical-CSS build never inlined",
+      "Prompt Library content is email-gated and JS-injected, invisible to Google and AI crawlers",
+      "No per-tool deploy pages, comparison pages, About page, or social proof; competitors own the target SERPs"
+    ],
+    "quick_wins": [
+      "Replace sitemap.xml with sitemap-corrected.xml and fix robots.txt Sitemap line",
+      "Add clean-URL canonical and og:url to all 9 pages",
+      "Enable encode zstd gzip in Caddy",
+      "Paste generated Organization/WebSite/SoftwareApplication JSON-LD into homepage",
+      "Re-export og-image.png (1.5 MB) and two blog hero PNGs (2.7 MB each) as compressed WebP"
+    ]
+  },
+  "categories": [
+    {
+      "name": "Technical SEO",
+      "weight": 0.22,
+      "score": 44,
+      "what_works": [
+        "Internal links already use clean extensionless URLs with no 404s",
+        "Content fully present in raw HTML; no JS rendering dependency",
+        "HTTP/2, correct viewport, lang, favicon set",
+        "Assets served with cache-control: public",
+        "robots.txt open to all crawlers"
+      ],
+      "findings": [
+        {"title": "Sitemap URLs all redirect (www + .html)", "severity": "Critical", "description": "All 9 sitemap URLs use https://www.ezlaunch.app/*.html; each 301s to apex then to the extensionless path. robots.txt Sitemap directive also points to www.", "recommendation": "Deploy sitemap-corrected.xml (apex host, clean URLs) and update robots.txt to https://ezlaunch.app/sitemap.xml."},
+        {"title": "Canonical tags missing or pointing to redirects", "severity": "Critical", "description": "Home, contact, privacy, prompt-library, status, terms have no canonical. Blog index and both posts canonicalize to .html URLs that 301.", "recommendation": "Add <link rel=\"canonical\"> with clean https://ezlaunch.app URLs to all 9 pages; align og:url."},
+        {"title": "No HTTP compression on text assets", "severity": "Critical", "description": "HTML, styles.css (123,506 B) and JS return no content-encoding even with Accept-Encoding: gzip, br.", "recommendation": "Add `encode zstd gzip` to the Caddy site block."},
+        {"title": "Render-blocking 123 KB stylesheet; critical CSS unused", "severity": "High", "description": "css/critical-index.css and css/critical-sub.css exist in the repo but are referenced by no page.", "recommendation": "Inline the critical CSS per page type and defer styles.css."},
+        {"title": "Missing HSTS, CSP, Permissions-Policy", "severity": "High", "description": "Only x-content-type-options, x-frame-options, referrer-policy are set. Third-party scripts (Meta Pixel) load without a CSP.", "recommendation": "Add Strict-Transport-Security, a Content-Security-Policy allow-list, and Permissions-Policy in Caddy."},
+        {"title": "Meta Pixel loaded twice", "severity": "Medium", "description": "js/meta-pixel.js in body plus an inline snippet in the served head fire PageView twice.", "recommendation": "Keep a single loader."},
+        {"title": "CSS/JS cached 24h without hashed filenames", "severity": "Medium", "description": "Short TTL with no cache-busting.", "recommendation": "Hash filenames and set max-age=31536000, immutable."},
+        {"title": "/llms.txt missing; no IndexNow", "severity": "Low", "description": "Both 404 / absent.", "recommendation": "Publish llms.txt (draft in findings/geo.md) and an IndexNow key."},
+        {"title": "x-middleware-rewrite header leaks routing", "severity": "Low", "description": "Response exposes /api/serve/custom/index.html.", "recommendation": "Strip the header at Caddy."}
+      ]
+    },
+    {
+      "name": "Content Quality",
+      "weight": 0.23,
+      "score": 48,
+      "what_works": [
+        "Deploy post is 2,090 words with a comparison table, byline and date",
+        "Pricing is transparent on the homepage",
+        "Blog heroes have descriptive alt text"
+      ],
+      "findings": [
+        {"title": "Prompt Library content gated and uncrawlable", "severity": "High", "description": "119 crawlable words; prompts injected by JS after email capture. Title/meta promise content Google never sees.", "recommendation": "Render prompt titles, summaries and several full prompts in HTML; gate only the download."},
+        {"title": "No social proof", "severity": "High", "description": "No testimonials, logos, case studies or usage numbers anywhere.", "recommendation": "Add real counts, 2-3 testimonials and customer logos to the homepage."},
+        {"title": "No About or team page", "severity": "High", "description": "Company identity appears only in legal pages as Jaguar Hosting LLC, Wyoming.", "recommendation": "Create /about with founder, mission, contact channels; link from footer."},
+        {"title": "Status page shows stale hardcoded date", "severity": "Medium", "description": "\"Last updated: May 2026\" on a page claiming real-time status.", "recommendation": "Wire to live data or remove the date."},
+        {"title": "Posts lack author bio, updated date, dateModified", "severity": "Medium", "description": "Visible byline and publish date only.", "recommendation": "Add author bios with links and an Updated date; set dateModified in schema."},
+        {"title": "Homepage lacks a citable product definition", "severity": "Medium", "description": "Only the meta description states what EZLaunch is; visible copy is card microcopy.", "recommendation": "Add a 2-3 sentence entity-first paragraph near the top."},
+        {"title": "Thin blog index and status pages", "severity": "Low", "description": "173 and 103 words respectively.", "recommendation": "Add category intro copy and post excerpts to the blog index."}
+      ]
+    },
+    {
+      "name": "On-Page SEO",
+      "weight": 0.20,
+      "score": 58,
+      "what_works": [
+        "Unique title, meta description and single H1 on every page",
+        "Consistent 'Page — EZLaunch' title pattern",
+        "Orderly H2 hierarchy on posts"
+      ],
+      "findings": [
+        {"title": "Canonical missing on 6 pages", "severity": "High", "description": "See Technical.", "recommendation": "Add clean-URL canonicals sitewide."},
+        {"title": "Blog post titles 82-83 characters", "severity": "Medium", "description": "Both will truncate in SERPs.", "recommendation": "Trim to under 60 characters; keep the long form as H1."},
+        {"title": "Blog index og:title mismatch", "severity": "Medium", "description": "og:title 'EZblog — EZLaunch' vs title 'Blog — EZLaunch'.", "recommendation": "Align both."},
+        {"title": "Blog posts not linked from homepage body", "severity": "Medium", "description": "Only the footer Blog link reaches them.", "recommendation": "Add a 'From the blog' section on the homepage."},
+        {"title": "Nav logo links to #", "severity": "Low", "description": "Should link to /.", "recommendation": "Change href to /."},
+        {"title": "meta keywords present", "severity": "Low", "description": "Ignored by Google.", "recommendation": "Remove."}
+      ]
+    },
+    {
+      "name": "Schema / Structured Data",
+      "weight": 0.10,
+      "score": 38,
+      "what_works": ["Article JSON-LD with author, date and publisher on both posts"],
+      "findings": [
+        {"title": "Homepage has no structured data", "severity": "Critical", "description": "No Organization, WebSite or SoftwareApplication despite pricing tiers (Free $0, Starter $5, Pro $10, Agency $19/mo) and 4 social profiles.", "recommendation": "Paste the generated JSON-LD from findings/schema.md."},
+        {"title": "Article publisher.logo missing", "severity": "High", "description": "Required ImageObject absent on both posts.", "recommendation": "Add publisher.logo with https://ezlaunch.app/assets/logo-ezlaunch.svg (or a PNG)."},
+        {"title": "Article missing mainEntityOfPage, dateModified, author.url; uses .html URLs", "severity": "Medium", "description": "Incomplete recommended properties; URLs conflict with canonical plan.", "recommendation": "Complete the properties and switch to clean URLs."},
+        {"title": "No BreadcrumbList, Blog/CollectionPage, ContactPage", "severity": "Medium", "description": "None present anywhere.", "recommendation": "Add per templates in findings/schema.md."}
+      ]
+    },
+    {
+      "name": "Performance (CWV)",
+      "weight": 0.10,
+      "score": 58,
+      "data_source": "Estimated from headers and assets; PageSpeed Insights returned 429 quota exhausted; no CrUX field data",
+      "what_works": [
+        "Fonts preloaded, woff2, font-display swap, 1-year cache",
+        "All images have explicit dimensions (low CLS risk)",
+        "HTTP/2"
+      ],
+      "findings": [
+        {"title": "No text compression", "severity": "High", "description": "70-85% transfer reduction available.", "recommendation": "Enable brotli/gzip in Caddy."},
+        {"title": "Render-blocking full stylesheet", "severity": "High", "description": "123.5 KB CSS blocks first paint on every page.", "recommendation": "Inline the existing critical CSS and defer the rest."},
+        {"title": "2.6-2.7 MB PNG hero images on blog posts", "severity": "High", "description": "Likely LCP element on post pages.", "recommendation": "WebP/AVIF at rendered size, srcset, fetchpriority=high."},
+        {"title": "Meta Pixel double-fires", "severity": "Medium", "description": "Two loaders per page.", "recommendation": "Remove one."},
+        {"title": "Short cache TTL on CSS/JS without hashing", "severity": "Medium", "description": "24h cache, no cache-busting.", "recommendation": "Hashed filenames with immutable long TTL."}
+      ]
+    },
+    {
+      "name": "AI Search Readiness",
+      "weight": 0.10,
+      "score": 54,
+      "what_works": [
+        "robots.txt allows GPTBot, ClaudeBot, PerplexityBot, Google-Extended, CCBot",
+        "Byte-identical responses across AI and browser user agents",
+        "Deploy post comparison table is highly citable"
+      ],
+      "findings": [
+        {"title": "Prompt Library invisible to AI crawlers", "severity": "Critical", "description": "Email-gated, JS-injected content.", "recommendation": "Render prompts in HTML."},
+        {"title": "No Organization/Product schema", "severity": "High", "description": "Weak entity signal for AI Overviews and Copilot.", "recommendation": "Add homepage JSON-LD."},
+        {"title": "llms.txt missing", "severity": "High", "description": "404.", "recommendation": "Publish the draft in findings/geo.md."},
+        {"title": "No self-contained product definition in visible prose", "severity": "Medium", "description": "Only in meta description.", "recommendation": "Add an entity-first paragraph."},
+        {"title": "No FAQ content; sparse off-site brand mentions", "severity": "Medium", "description": "No Product Hunt, G2, or directory listings found.", "recommendation": "Add FAQ blocks and pursue listings."}
+      ]
+    },
+    {
+      "name": "Images",
+      "weight": 0.05,
+      "score": 58,
+      "what_works": [
+        "All images have width/height",
+        "32 of 37 homepage images lazy-loaded",
+        "UI graphics are small SVGs"
+      ],
+      "findings": [
+        {"title": "Blog hero PNGs 2.77 MB and 2.73 MB", "severity": "High", "description": "No srcset or modern format.", "recommendation": "Compress to WebP/AVIF under 150 KB with picture fallback."},
+        {"title": "og-image.png 1.5 MB", "severity": "High", "description": "Slow social unfurls; some platforms skip large images.", "recommendation": "Re-export 1200x630 under 300 KB."},
+        {"title": "Blog index thumbnails empty alt", "severity": "Medium", "description": "alt=\"\" on both post cards.", "recommendation": "Use the post hero alt text."},
+        {"title": "Marquee logos cloned 4x", "severity": "Low", "description": "32 decorative img tags.", "recommendation": "Reduce clones to 2 and mark aria-hidden."}
+      ]
+    }
+  ],
+  "supplementary": {
+    "sitemap_score": 62,
+    "sxo_score": 45,
+    "cluster_plan": "findings/cluster.md"
+  },
+  "action_plan": {
+    "phases": [
+      {"name": "Phase 1: Critical Fixes", "timeframe": "Week 1", "items": [
+        "Deploy sitemap-corrected.xml and fix robots.txt Sitemap line",
+        "Add clean-URL canonical and og:url to all 9 pages",
+        "Enable encode zstd gzip in Caddy",
+        "Add homepage Organization/WebSite/SoftwareApplication JSON-LD",
+        "Add Strict-Transport-Security header",
+        "Resubmit sitemap in Search Console"
+      ]},
+      {"name": "Phase 2: High-Impact Improvements", "timeframe": "Weeks 2-3", "items": [
+        "Inline critical CSS and defer styles.css",
+        "Compress blog hero PNGs and og-image; add srcset and fetchpriority",
+        "Complete Article schema and add BreadcrumbList",
+        "Remove duplicate Meta Pixel loader",
+        "Make Prompt Library crawlable",
+        "Add /about page and homepage social proof",
+        "Fix stale Status page date",
+        "Shorten blog titles; align blog og:title",
+        "Add CSP and Permissions-Policy",
+        "Add visible 'What is EZLaunch' paragraph"
+      ]},
+      {"name": "Phase 3: Content & Authority", "timeframe": "Month 2", "items": [
+        "Expand deploy post into pillar",
+        "/deploy/lovable, /deploy/bolt, /deploy/v0, /deploy/claude-code, /deploy/cursor",
+        "Expand Prompt Library into a resource hub",
+        "Netlify / GitHub Pages alternatives comparison pages",
+        "Add contact form guide",
+        "Publish llms.txt; add author bios",
+        "Pursue Product Hunt, G2, AlternativeTo, GitHub awesome-list mentions"
+      ]},
+      {"name": "Phase 4: Monitoring & Iteration", "timeframe": "Ongoing", "items": [
+        "Connect GSC and GA4; re-run audit with credentials",
+        "Monthly PSI with API key; target mobile LCP < 2.5 s",
+        "Hashed asset filenames with immutable cache",
+        "IndexNow key",
+        "Capture drift baseline after Phase 1",
+        "Track SERP positions for deploy-tool queries biweekly"
+      ]}
+    ]
+  },
+  "limitations": [
+    "claude-seo managed runtime could not be installed; no rendering, screenshots or PDF generation",
+    "PageSpeed Insights quota exhausted; performance score is estimated",
+    "No GSC, GA4, Moz, Bing or DataForSEO credentials; no indexation, traffic or backlink data",
+    "WebSearch SERP samples are directional, not full top-10 scrapes"
+  ],
+  "artifacts": {
+    "findings_dir": "findings/",
+    "screenshots_dir": "screenshots/",
+    "corrected_sitemap": "sitemap-corrected.xml",
+    "live_html_dir": "live-html/"
+  }
+}
