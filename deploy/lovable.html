@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/EZ-Favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="Step-by-step: get your Lovable code from GitHub, build it locally, upload the dist folder to EZLaunch, and add a custom domain with SSL. About 10 minutes.">
+  <meta name="author" content="Julian Cabada">
+  <link rel="canonical" href="https://ezlaunch.app/deploy/lovable">
+  <meta property="og:title" content="How to Deploy a Lovable Site on EZLaunch">
+  <meta property="og:description" content="Step-by-step: get your Lovable code from GitHub, build it locally, upload the dist folder to EZLaunch, and add a custom domain with SSL. About 10 minutes.">
+  <meta property="og:url" content="https://ezlaunch.app/deploy/lovable">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="653">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Deploy a Lovable Site on EZLaunch">
+  <meta name="twitter:description" content="Step-by-step: get your Lovable code from GitHub, build it locally, upload the dist folder to EZLaunch, and add a custom domain with SSL. About 10 minutes.">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <title>Deploy a Lovable Site to EZLaunch: Build, Upload, Domain</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Deploy a Lovable Site on EZLaunch",
+    "description": "Step-by-step: get your Lovable code from GitHub, build it locally, upload the dist folder to EZLaunch, and add a custom domain with SSL. About 10 minutes.",
+    "image": "https://ezlaunch.app/assets/og-image.jpg",
+    "datePublished": "2026-09-14",
+    "dateModified": "2026-09-14",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://ezlaunch.app/deploy/lovable"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Julian Cabada"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EZLaunch",
+      "url": "https://ezlaunch.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ezlaunch.app/assets/logo-ezlaunch.svg"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ezlaunch.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Deploy guides",
+        "item": "https://ezlaunch.app/blog/deploying-ai-built-sites"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Lovable",
+        "item": "https://ezlaunch.app/deploy/lovable"
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="page-sub page-blog-post">
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img class="nav__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../about.html">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">
+          <span class="nav__cta-short">Start free</span>
+          <span class="nav__cta-full">Get started free</span>
+        </a>
+        <button type="button" class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+      <ul class="nav__drawer-links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__drawer-cta">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">Get started free</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-blog-post__main">
+    <article class="page-blog-post__inner">
+      <a class="page-blog-post__back" href="../blog/deploying-ai-built-sites.html">← All deploy guides</a>
+
+      <header class="page-blog-post__header">
+        <p class="page-blog-post__meta">September 14, 2026 · <span class="page-blog-post__author">Julian Cabada</span> · 7 min read</p>
+        <h1 class="page-blog-post__title">How to Deploy a Lovable Site on EZLaunch</h1>
+      </header>
+
+      <div class="page-blog-post__content">
+        <p class="page-blog-post__lead">A Lovable project is a Vite + React source codebase, and EZLaunch hosts static files. So deploying takes four moves: get the code out of Lovable, run one build command on your computer, zip the output folder, and drop that ZIP on EZLaunch. Your site is live on an ezlaunch.app subdomain in seconds, and a custom domain with SSL takes one DNS record. The whole thing is about ten minutes the first time and two minutes after that.</p>
+
+        <section class="page-blog-post__section">
+          <h2>What Lovable gives you, and why there is a build step</h2>
+          <p>Lovable generates a complete front-end project: React with TypeScript, built by Vite, styled with Tailwind and shadcn/ui components. That is source code, not a finished website. Browsers cannot run TypeScript or JSX directly, so the project has to be compiled once into plain HTML, CSS, and JavaScript. Vite does that with a single command and writes the result to a folder named <code>dist</code>.</p>
+          <p>EZLaunch deliberately does not run build steps on its servers. It serves exactly the files you give it, which is what keeps deploys instant and predictable. That means the build happens on your machine, and what you upload is the <code>dist</code> folder, not the whole project.</p>
+          <p>If your Lovable app uses Supabase for login, a database, or storage, that part keeps running on Supabase. The front end you deploy to EZLaunch talks to it over the network exactly as it did on Lovable's hosting. See the Supabase notes near the end.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Before you start</h2>
+          <ul class="page-blog-post__list">
+            <li><strong>Node.js 18 or newer</strong> on your computer. Download it from nodejs.org if <code>node -v</code> in a terminal shows nothing.</li>
+            <li><strong>A free EZLaunch account</strong> at <a href="https://app.ezlaunch.app/signup">app.ezlaunch.app</a>. The free plan accepts ZIPs up to 50 MB; a built Lovable site is usually under 5 MB.</li>
+            <li><strong>A GitHub account</strong>, or a paid Lovable plan, which unlocks a direct code download. Either route works.</li>
+          </ul>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 1: Get the code out of Lovable</h2>
+          <p><strong>Option A, GitHub (works on every Lovable plan).</strong> In your Lovable project open <em>Project settings → Git → GitHub</em> and click <em>Connect</em>. Lovable creates a repository in your GitHub account and keeps it in two-way sync: every edit you make in Lovable lands in the repo, and commits you push to the active branch flow back into Lovable. From then on your code is always one <code>git pull</code> away.</p>
+          <p><strong>Option B, direct download (paid Lovable plans).</strong> Open <em>Project settings → Git</em> and use <em>Download codebase</em>, or click the same button at the bottom of the file tree in Lovable's code editor. You get a ZIP of the source project. Unzip it somewhere you can find it.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 2: Fix routing before you build</h2>
+          <p>This is the step people skip and then wonder why their site half works. Lovable apps use React Router in browser-history mode, so a page like <code>/pricing</code> only exists inside the running JavaScript app. On a static host, if a visitor opens <code>yoursite.com/pricing</code> directly, refreshes there, or shares that link, the server looks for a file called <code>pricing</code>, finds nothing, and returns a 404. EZLaunch, like most static hosts, does not currently redirect unknown paths back to <code>index.html</code>.</p>
+          <p>The fix is one prompt in Lovable, before you export or build:</p>
+          <pre><code>Switch the app from BrowserRouter to HashRouter so it can be hosted as static files. Keep all routes and links working.</code></pre>
+          <p>Your URLs become <code>yoursite.com/#/pricing</code> and every one of them works when opened directly. If your site is a single page with no routes, you can skip this step.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 3: Build the site on your computer</h2>
+          <p>Open a terminal in the project folder. If you went the GitHub route, clone it first. Then install dependencies and build:</p>
+          <pre><code>git clone https://github.com/YOUR-USER/YOUR-LOVABLE-REPO.git
+cd YOUR-LOVABLE-REPO
+npm install
+npm run build</code></pre>
+          <p>When it finishes you will have a <code>dist</code> folder containing <code>index.html</code>, an <code>assets</code> folder, and a few other files. That folder is your entire website. You can double-check by running <code>npm run preview</code> and opening the local URL it prints.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 4: Zip the contents of dist</h2>
+          <p>EZLaunch needs <code>index.html</code> at the top level of the ZIP, not nested inside a <code>dist</code> folder. So zip the files <em>inside</em> <code>dist</code>, not the folder itself.</p>
+          <ul class="page-blog-post__list">
+            <li><strong>Mac:</strong> open <code>dist</code> in Finder, select all files (Cmd+A), right-click, <em>Compress</em>.</li>
+            <li><strong>Windows:</strong> open <code>dist</code>, select all, right-click, <em>Send to → Compressed (zipped) folder</em>.</li>
+            <li><strong>Terminal:</strong> <code>cd dist &amp;&amp; zip -r ../site.zip .</code></li>
+          </ul>
+          <p>Correct structure: <code>site.zip → index.html, assets/, favicon.ico</code>. Wrong structure: <code>site.zip → dist/index.html</code>.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 5: Upload to EZLaunch</h2>
+          <p>Sign in at <a href="https://app.ezlaunch.app">app.ezlaunch.app</a>, click <em>New site</em>, and drag your ZIP onto the upload area. The site goes live on a <code>something.ezlaunch.app</code> address with HTTPS already on. Analytics start collecting immediately on every plan.</p>
+          <p>Prefer the terminal? The CLI deploys the folder you are standing in, so no ZIP is needed:</p>
+          <pre><code>npm install -g ezlaunch
+ezlaunch login
+cd dist
+ezlaunch deploy</code></pre>
+          <p>The GitHub connect option on the EZLaunch dashboard copies a repository's files as they are. Because a Lovable repo contains source rather than built output, use the ZIP or CLI route for Lovable projects.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 6: Add your custom domain</h2>
+          <p>In your site's <em>Settings → Custom Domain</em>, enter the domain. Then at your DNS provider add an A record pointing the domain to <code>87.99.143.176</code>. Back in EZLaunch click <em>Check DNS</em>. Once the record resolves, a Let's Encrypt certificate is issued automatically, usually within two minutes, and the site answers on your domain over HTTPS.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 7: Make the contact form work</h2>
+          <p>Lovable often generates a contact form that posts nowhere, or wires it to Supabase. EZLaunch can handle it without a backend. Ask Lovable to add one attribute to the form tag:</p>
+          <pre><code>&lt;form data-ezlaunch name="contact"&gt;</code></pre>
+          <p>Rebuild and redeploy. EZLaunch injects the endpoint, adds honeypot spam protection, and shows submissions in your dashboard. Form submissions are included on paid plans; the free plan hosts the site but does not collect submissions.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Updating the site later</h2>
+          <p>Edit in Lovable as usual. When you want the live site to change: <code>git pull</code> (or download again), <code>npm run build</code>, then either upload the new ZIP to the same site in the dashboard or run <code>ezlaunch deploy</code> from <code>dist</code>. Two minutes, no downtime.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>If your app uses Supabase</h2>
+          <ul class="page-blog-post__list">
+            <li>Vite bakes <code>VITE_SUPABASE_URL</code> and <code>VITE_SUPABASE_ANON_KEY</code> into the build. Make sure a <code>.env</code> file with those values exists in the project before <code>npm run build</code>. Lovable normally commits them; the anon key is designed to be public.</li>
+            <li>In the Supabase dashboard under <em>Authentication → URL Configuration</em>, add your new EZLaunch address and custom domain to the redirect list, or login redirects will fail.</li>
+            <li>Nothing about the database moves. Only the front end is hosted on EZLaunch.</li>
+          </ul>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Lovable hosting or EZLaunch?</h2>
+          <div class="page-blog-post__table-wrap">
+            <table class="page-blog-post__table">
+              <thead><tr><th></th><th>Lovable publish</th><th>EZLaunch</th></tr></thead>
+              <tbody>
+                <tr><td>Setup</td><td>One click inside Lovable</td><td>Build locally, upload ZIP</td></tr>
+                <tr><td>Custom domain</td><td>Available on Lovable's paid plans</td><td>Included, free plan too</td></tr>
+                <tr><td>Forms without a backend</td><td>No</td><td>Yes, one attribute</td></tr>
+                <tr><td>Analytics</td><td>No</td><td>Included on every plan</td></tr>
+                <tr><td>Deploy from other tools too</td><td>Lovable projects only</td><td>Any static site: Bolt, v0, Claude Code, Cursor, hand-written</td></tr>
+                <tr><td>Best for</td><td>Prototypes you keep editing daily</td><td>Sites you want on your own domain with forms and analytics</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p>Many people use both: Lovable's built-in preview while iterating, EZLaunch for the live site on the real domain.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Common questions</h2>
+          <h3>Does EZLaunch build my Lovable project for me?</h3>
+          <p>No. EZLaunch hosts the built output only. Run <code>npm run build</code> locally and upload the <code>dist</code> folder's contents.</p>
+          <h3>My pages 404 when I refresh. Why?</h3>
+          <p>Your app uses browser-history routing and the host has no file at that path. Ask Lovable to switch to HashRouter (Step 2), rebuild, and redeploy.</p>
+          <h3>The site loads but styles or images are missing.</h3>
+          <p>Almost always the ZIP contains a <code>dist</code> folder instead of the files inside it. Re-zip from inside <code>dist</code> (Step 4).</p>
+          <h3>Can I keep editing in Lovable after deploying to EZLaunch?</h3>
+          <p>Yes. Lovable keeps syncing to GitHub. Pull, build, and redeploy whenever you want the live site updated.</p>
+          <h3>How big can the ZIP be?</h3>
+          <p>50 MB on the free plan, 100 MB on Starter, 500 MB on Pro, 1 GB on Agency. A typical Lovable build is 1 to 5 MB.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <p class="page-blog-post__disclosure">EZLaunch is a product I build. Lovable's features and plan details change; check lovable.dev for current specifics.</p>
+        </section>
+      </div>
+
+      <aside class="page-blog-post__cta">
+        <p class="page-blog-post__cta-text">Ready to put your Lovable site on your own domain?</p>
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="btn-primary">Get started free</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../index.html" class="footer__brand-logo">
+          <img class="footer__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+        </a>
+        <p class="footer__tagline">Static hosting for AI-generated websites.</p>
+        <div class="footer__social">
+          <a class="footer__social-link" href="https://x.com/EZlaunchapp" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on X">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.facebook.com/profile.php?id=61590129630123" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on Facebook">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/company/ezlaunchapp/" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on LinkedIn">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Product</p>
+          <ul>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../index.html#how-it-works">CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Assets</p>
+          <ul>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../prompt-library.html">Prompt Library</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Developers</p>
+          <ul>
+            <li><a href="https://docs.ezlaunch.app">Docs</a></li>
+            <li><a href="https://github.com/Roosterfishdev/ezlaunch-cli" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 EZLaunch. All rights reserved.</p>
+    </div>
+    <div class="footer__bottom">
+      <a href="../terms.html">Terms</a>
+      <span aria-hidden="true">·</span>
+      <a href="../privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../status.html">Status</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://docs.ezlaunch.app">Docs</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
+  <script src="../js/meta-pixel.js" defer></script>
+</body>
+</html>
