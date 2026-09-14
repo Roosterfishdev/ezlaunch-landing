@@ -149,6 +149,8 @@
     storeAccess(email);
     document.body.classList.add('page-prompts--unlocked');
     gate.hidden = true;
+    const preview = document.getElementById('prompt-preview');
+    if (preview) preview.hidden = true;
     gate.setAttribute('aria-hidden', 'true');
     library.hidden = false;
     library.removeAttribute('aria-hidden');

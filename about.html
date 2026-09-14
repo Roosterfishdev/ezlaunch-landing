@@ -7,26 +7,30 @@
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/favicon.svg" type="image/svg+xml">
   <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <meta name="description" content="Insights on static hosting, AI-built websites, and shipping faster with HTML, CSS, and JavaScript.">
-  <link rel="canonical" href="https://ezlaunch.app/blog">
-  <meta property="og:title" content="Blog — EZLaunch">
-  <meta property="og:description" content="Ideas for builders shipping on the web — from EZLaunch.">
-  <meta property="og:url" content="https://ezlaunch.app/blog">
+  <meta name="description" content="EZLaunch is a static hosting platform for AI-generated websites, built and operated by Jaguar Hosting LLC in Wyoming, USA.">
+  <link rel="canonical" href="https://ezlaunch.app/about">
+  <meta property="og:title" content="About — EZLaunch">
+  <meta property="og:description" content="Who builds EZLaunch, why it exists, and how to reach us.">
+  <meta property="og:url" content="https://ezlaunch.app/about">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://ezlaunch.app/assets/blog/html-websites-are-the-future.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="675">
+  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.jpg">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="EZblog — EZLaunch">
-  <meta name="twitter:description" content="Ideas for builders shipping on the web — from EZLaunch.">
-  <meta name="twitter:image" content="https://ezlaunch.app/assets/blog/html-websites-are-the-future.jpg">
-  <title>Blog — EZLaunch</title>
-  <link rel="preload" href="assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
-  <link rel="preload" href="assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <meta name="twitter:title" content="About — EZLaunch">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <title>About — EZLaunch</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About EZLaunch",
+    "url": "https://ezlaunch.app/about",
+    "about": { "@id": "https://ezlaunch.app/#org" }
+  }
+  </script>
   <link rel="stylesheet" href="css/fonts.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="page-sub page-blog">
+<body class="page-sub page-legal">
 
   <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
 
@@ -63,41 +67,33 @@
     </div>
   </nav>
 
-  <main class="page-blog__main">
-    <div class="page-blog__inner">
-      <header class="page-blog__header">
-        <span class="page-blog__badge">EZblog</span>
-        <h1 class="page-blog__title">Ideas for builders shipping on the web</h1>
-      </header>
+  <main class="page-content">
+    <div class="page-legal__inner">
+      <h1 class="page-legal__title">About EZLaunch</h1>
+      <p class="page-legal__intro">EZLaunch is a static hosting platform for websites generated with AI tools such as Claude Code, Cursor, Bolt, Lovable, Replit, and v0. It is built and operated by Jaguar Hosting LLC, a company registered in Wyoming, USA.</p>
 
-      <div class="blog-grid">
-        <article class="blog-card">
-          <a class="blog-card__link" href="blog/deploying-ai-built-sites.html">
-            <div class="blog-card__media">
-              <img class="blog-card__img" src="assets/blog/deploying-ai-built-sites-800.webp" alt="Deploying AI-built sites — ChatGPT, Claude, Bolt, Lovable, and Replit" width="640" height="360" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-card__body">
-              <p class="blog-card__meta">June 3, 2026 · Julian Cabada · 12 min read</p>
-              <h2 class="blog-card__title">Deploying Sites Built by ChatGPT, Claude, Bolt, Lovable, and Replit</h2>
-              <p class="blog-card__excerpt">AI made it trivial to generate a website. Here's how to actually put it online — what each tool outputs, how hosts compare, and how to pick the right one.</p>
-              <span class="blog-card__cta">Read article →</span>
-            </div>
-          </a>
-        </article>
-        <article class="blog-card">
-          <a class="blog-card__link" href="blog/html-websites-are-the-future.html">
-            <div class="blog-card__media">
-              <img class="blog-card__img" src="assets/blog/html-websites-are-the-future-800.webp" alt="Abstract illustration representing modern static HTML web development" width="640" height="360" loading="lazy" decoding="async">
-            </div>
-            <div class="blog-card__body">
-              <p class="blog-card__meta">May 19, 2026 · Julian Cabada · 10 min read</p>
-              <h2 class="blog-card__title">Static HTML Websites Are Not Just the Present — They're the Future</h2>
-              <p class="blog-card__excerpt">Plain HTML websites might sound boring — but with AI, they're cheap to host, unlimited in design, fast for SEO, and where the industry is quietly heading.</p>
-              <span class="blog-card__cta">Read article →</span>
-            </div>
-          </a>
-        </article>
-      </div>
+      <section class="page-legal__section">
+        <h2>Why EZLaunch exists</h2>
+        <p>AI coding tools make it easy to generate a complete website in minutes, but getting that site online still means picking a host, configuring builds, wiring up SSL, and finding separate services for forms and analytics. EZLaunch removes those steps. You drop a ZIP file or connect a GitHub repository, and the site is live with HTTPS, a custom domain, form handling, and analytics included.</p>
+      </section>
+
+      <section class="page-legal__section">
+        <h2>Who builds it</h2>
+        <p>EZLaunch is built by a small team led by founder Julian Cabada, who also writes the <a href="blog.html">EZLaunch blog</a>. The <a href="https://github.com/Roosterfishdev/ezlaunch-cli" target="_blank" rel="noopener noreferrer">EZLaunch CLI</a> is open source on GitHub.</p>
+      </section>
+
+      <section class="page-legal__section">
+        <h2>Company details</h2>
+        <p>Legal entity: Jaguar Hosting LLC, Wyoming, USA.<br>
+        Support: <a href="mailto:support@ezlaunch.app">support@ezlaunch.app</a> or the <a href="contact.html">contact form</a>.<br>
+        Service status: <a href="status.html">status page</a>.<br>
+        Follow: <a href="https://x.com/EZlaunchapp" target="_blank" rel="noopener noreferrer">X</a>, <a href="https://www.linkedin.com/company/ezlaunchapp/" target="_blank" rel="noopener noreferrer">LinkedIn</a>, <a href="https://www.facebook.com/profile.php?id=61590129630123" target="_blank" rel="noopener noreferrer">Facebook</a>.</p>
+      </section>
+
+      <section class="page-legal__section">
+        <h2>Legal</h2>
+        <p>Read our <a href="terms.html">Terms of Service</a> and <a href="privacy.html">Privacy Policy</a>.</p>
+      </section>
     </div>
   </main>
 
@@ -159,6 +155,7 @@
   </footer>
 
   <script src="js/main.js"></script>
+  <script src="js/contact.js"></script>
 
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
   <script src="js/meta-pixel.js" defer></script>

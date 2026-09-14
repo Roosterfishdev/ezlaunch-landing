@@ -13,11 +13,11 @@
   <link rel="canonical" href="https://ezlaunch.app/prompt-library">
   <meta property="og:url" content="https://ezlaunch.app/prompt-library">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.png">
+  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.jpg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.png">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.jpg">
   <meta name="twitter:title" content="Prompt Library — EZLaunch">
   <meta name="twitter:description" content="Copy-ready AI prompts for static sites and EZLaunch workflows.">
   <title>Prompt Library — EZLaunch</title>
@@ -39,6 +39,7 @@
         <li><a href="index.html#features">Features</a></li>
         <li><a href="index.html#how-it-works">How it works</a></li>
         <li><a href="index.html#pricing">Pricing</a></li>
+            <li><a href="about.html">About</a></li>
       </ul>
       <div class="nav__actions">
         <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">
@@ -69,6 +70,71 @@
       <p class="page-prompts__sub">Battle-tested prompts for Claude, Cursor, Bolt, and v0 — built for shipping static sites on EZLaunch.</p>
     </header>
 
+    <section class="prompt-preview" id="prompt-preview" aria-labelledby="prompt-preview-title">
+      <h2 id="prompt-preview-title">What is inside: 15 prompts across 8 categories</h2>
+      <p>Every prompt is written for AI coding tools such as Claude Code, Cursor, Bolt, and v0, and produces plain HTML, CSS, and JavaScript you can deploy on EZLaunch in one step.</p>
+      <h3>Analytics</h3>
+      <ul>
+        <li><strong>Privacy-friendly analytics copy</strong> — Explain Umami-style tracking to users.</li>
+      </ul>
+      <h3>Content</h3>
+      <ul>
+        <li><strong>Blog post layout (static)</strong> — Article template matching marketing site.</li>
+        <li><strong>Why static HTML — thought leadership</strong> — Long-form post angle for AI builders.</li>
+      </ul>
+      <h3>Deploy</h3>
+      <ul>
+        <li><strong>Prepare project for EZLaunch ZIP</strong> — Flatten structure and ignore dev files before upload.</li>
+        <li><strong>CLI deploy checklist</strong> — Step-by-step terminal workflow.</li>
+      </ul>
+      <h3>Design</h3>
+      <ul>
+        <li><strong>Feature card grid (6 cards)</strong> — Bento-style features section for hosting product.</li>
+        <li><strong>Pricing table (4 tiers)</strong> — Free, Starter, Pro, Agency comparison.</li>
+      </ul>
+      <h3>Forms</h3>
+      <ul>
+        <li><strong>Contact form with EZLaunch backend</strong> — Wire data-ezlaunch without breaking static hosting.</li>
+        <li><strong>Newsletter signup strip</strong> — Footer email capture with honeypot-safe markup.</li>
+      </ul>
+      <h3>Landing</h3>
+      <ul>
+        <li><strong>SaaS landing page from scratch</strong> — Full marketing page with hero, features, pricing, and FAQ — static HTML/CSS only.</li>
+        <li><strong>Hero section that converts</strong> — Above-the-fold block tuned for AI-built static sites.</li>
+      </ul>
+      <h3>Refactor</h3>
+      <ul>
+        <li><strong>React build → static export</strong> — Strip runtime for EZLaunch-compatible output.</li>
+        <li><strong>Split one-page into multi-page site</strong> — Contact, privacy, blog without a framework.</li>
+      </ul>
+      <h3>SEO</h3>
+      <ul>
+        <li><strong>Meta tags and Open Graph pass</strong> — Search and social preview optimization for a single HTML file.</li>
+        <li><strong>Semantic heading structure</strong> — Fix outline for accessibility and rankings.</li>
+      </ul>
+      <h2>Three sample prompts, no email required</h2>
+      <div class="prompt-grid">
+        <article class="prompt-card">
+          <div class="prompt-card__top"><span class="prompt-card__category">Landing</span></div>
+          <h3 class="prompt-card__title">SaaS landing page from scratch</h3>
+          <p class="prompt-card__desc">Full marketing page with hero, features, pricing, and FAQ — static HTML/CSS only.</p>
+          <div class="prompt-card__body"><pre class="prompt-card__text">Build a complete SaaS landing page using only HTML, CSS, and vanilla JavaScript. Include: sticky nav with logo and CTA, hero with headline + subhead + two buttons, logo strip, 6-feature grid with icons, 3-step "how it works", 3-tier pricing table, FAQ accordion, footer with links. Use a modern indigo/violet palette, Urbanist-style headings, generous whitespace, and mobile-first responsive layout. No frameworks. Output separate index.html and styles.css files.</pre></div>
+        </article>
+        <article class="prompt-card">
+          <div class="prompt-card__top"><span class="prompt-card__category">Landing</span></div>
+          <h3 class="prompt-card__title">Hero section that converts</h3>
+          <p class="prompt-card__desc">Above-the-fold block tuned for AI-built static sites.</p>
+          <div class="prompt-card__body"><pre class="prompt-card__text">Write the HTML and CSS for a hero section for a static hosting product aimed at vibe coders. Headline should promise speed ("Ship your AI site in minutes"). Include a pill badge, primary CTA "Get started free", secondary "See how it works", and a subtle product mockup card showing a URL bar with https://mysite.ezlaunch.app. Use CSS only for layout; no images required except optional SVG. Fully responsive.</pre></div>
+        </article>
+        <article class="prompt-card">
+          <div class="prompt-card__top"><span class="prompt-card__category">Deploy</span></div>
+          <h3 class="prompt-card__title">Prepare project for EZLaunch ZIP</h3>
+          <p class="prompt-card__desc">Flatten structure and ignore dev files before upload.</p>
+          <div class="prompt-card__body"><pre class="prompt-card__text">Audit my static site folder for deployment to EZLaunch (ZIP upload). Ensure index.html is at the root, not inside a subfolder. List files to exclude (node_modules, .env, .git, build caches). Generate a .ezlaunchignore file. Summarize the final folder tree I should zip.</pre></div>
+        </article>
+      </div>
+    </section>
+
     <div id="prompt-gate" class="prompt-gate" role="region" aria-label="Unlock prompt library">
       <div class="prompt-gate__card">
         <div class="prompt-gate__icon" aria-hidden="true">
@@ -78,7 +144,7 @@
             <path d="M30 14l4 4-10 10H20v-4L30 14z" fill="#6366F1"/>
           </svg>
         </div>
-        <h2 class="prompt-gate__title">Enter your email to view prompts</h2>
+        <h2 class="prompt-gate__title">Enter your email to unlock all prompts</h2>
         <p class="prompt-gate__text">Get instant access to {{count}} copy-ready prompts. No account required.</p>
         <form id="prompt-gate-form" class="prompt-gate__form" novalidate>
           <label class="prompt-gate__label" for="prompt-gate-email">Email address</label>
