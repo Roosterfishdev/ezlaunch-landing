@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/EZ-Favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="Move a static site from Replit to EZLaunch: download the project, upload it, and add a custom domain with SSL. When Replit hosting fits better, and when it does not.">
+  <meta name="author" content="Julian Cabada">
+  <link rel="canonical" href="https://ezlaunch.app/deploy/replit">
+  <meta property="og:title" content="How to Deploy a Replit Site on EZLaunch">
+  <meta property="og:description" content="Move a static site from Replit to EZLaunch: download the project, upload it, and add a custom domain with SSL. When Replit hosting fits better, and when it does not.">
+  <meta property="og:url" content="https://ezlaunch.app/deploy/replit">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="653">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Deploy a Replit Site on EZLaunch">
+  <meta name="twitter:description" content="Move a static site from Replit to EZLaunch: download the project, upload it, and add a custom domain with SSL. When Replit hosting fits better, and when it does not.">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <title>Deploy a Replit Site to EZLaunch: Export and Go Live</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Deploy a Replit Site on EZLaunch",
+    "description": "Move a static site from Replit to EZLaunch: download the project, upload it, and add a custom domain with SSL. When Replit hosting fits better, and when it does not.",
+    "image": "https://ezlaunch.app/assets/og-image.jpg",
+    "datePublished": "2026-09-14",
+    "dateModified": "2026-09-14",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://ezlaunch.app/deploy/replit"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Julian Cabada"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EZLaunch",
+      "url": "https://ezlaunch.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ezlaunch.app/assets/logo-ezlaunch.svg"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ezlaunch.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Deploy guides",
+        "item": "https://ezlaunch.app/blog/deploying-ai-built-sites"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Replit",
+        "item": "https://ezlaunch.app/deploy/replit"
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="page-sub page-blog-post">
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img class="nav__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../about.html">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">
+          <span class="nav__cta-short">Start free</span>
+          <span class="nav__cta-full">Get started free</span>
+        </a>
+        <button type="button" class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+      <ul class="nav__drawer-links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__drawer-cta">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">Get started free</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-blog-post__main">
+    <article class="page-blog-post__inner">
+      <a class="page-blog-post__back" href="../blog/deploying-ai-built-sites.html">← All deploy guides</a>
+
+      <header class="page-blog-post__header">
+        <p class="page-blog-post__meta">September 14, 2026 · <span class="page-blog-post__author">Julian Cabada</span> · 6 min read</p>
+        <h1 class="page-blog-post__title">How to Deploy a Replit Site on EZLaunch</h1>
+      </header>
+
+      <div class="page-blog-post__content">
+        <p class="page-blog-post__lead">If what you built on Replit is a website made of HTML, CSS, and JavaScript, or a front-end project that builds to static files, you can host it on EZLaunch in a few minutes: download the project as a ZIP, build it if needed, and upload. If it is a Python or Node app with a server, keep it on Replit or another full-stack host; EZLaunch serves static files only. This guide shows how to tell the difference and do the move.</p>
+
+        <section class="page-blog-post__section">
+          <h2>Is your Replit project static?</h2>
+          <ul class="page-blog-post__list">
+            <li><strong>Yes, deploy it here:</strong> the "HTML, CSS, JS" template, a Vite or React front end, an Astro or Svelte site, or a Flask/Express project whose only job is serving a <code>static</code> or <code>public</code> folder.</li>
+            <li><strong>No, keep it on Replit:</strong> anything that needs a server at runtime, such as a Python backend, a Discord bot, a database-backed API, or Replit's built-in database.</li>
+          </ul>
+          <p>Middle ground: many Replit "apps" are a static front end plus a small API. You can host the front end on EZLaunch and leave the API on Replit, then point the front end at the API's URL. The front end gets a custom domain, forms, and analytics; the API stays where it runs.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 1: Download the project</h2>
+          <p>In the Replit workspace open the file tree's menu (the three dots at the top of the Files panel) and choose the option to download the project as a ZIP. Unzip it on your computer. If the project is connected to GitHub, <code>git clone</code> works too.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Step 2: Find or build the static files</h2>
+          <p><strong>HTML template:</strong> <code>index.html</code>, <code>style.css</code>, and <code>script.js</code> are already at the top level. Nothing to build.</p>
+          <p><strong>Vite / React / Astro / Svelte:</strong> run these in the unzipped folder (Node.js 18 or newer required):</p>
+          <pre><code>npm install
+npm run build</code></pre>
+          <p>Deploy the contents of <code>dist</code>. For React Router apps, ask the AI to switch to HashRouter first, because EZLaunch returns 404 for paths that do not match a file.</p>
+          <p><strong>Flask or Express serving a static folder:</strong> the deployable site is the <code>static</code>, <code>public</code>, or <code>templates</code> folder, as long as the pages are real HTML files and not server-rendered templates with variables in them. If they contain <code>{{ }}</code> placeholders, they need a server.</p>
+        </section>
+        <section class="page-blog-post__section">
+          <h2>Zip it the right way</h2>
+          <p>EZLaunch needs <code>index.html</code> at the top level of the ZIP, not inside a folder. Zip the files <em>inside</em> your output folder, not the folder itself.</p>
+          <ul class="page-blog-post__list">
+            <li><strong>Mac:</strong> open the folder in Finder, select all (Cmd+A), right-click, <em>Compress</em>.</li>
+            <li><strong>Windows:</strong> open the folder, select all, right-click, <em>Send to → Compressed (zipped) folder</em>.</li>
+            <li><strong>Terminal:</strong> <code>cd the folder &amp;&amp; zip -r ../site.zip .</code></li>
+          </ul>
+          <p>Correct: <code>site.zip → index.html, assets/</code>. Wrong: <code>site.zip → dist/index.html</code>. The free plan accepts ZIPs up to 50 MB.</p>
+        </section>
+        <section class="page-blog-post__section">
+          <h2>Upload to EZLaunch</h2>
+          <p>Sign in at <a href="https://app.ezlaunch.app">app.ezlaunch.app</a>, click <em>New site</em>, and drag the ZIP onto the upload area. The site is live on a <code>something.ezlaunch.app</code> address with HTTPS and analytics already on. Or skip the ZIP and deploy the folder from the terminal:</p>
+          <pre><code>npm install -g ezlaunch
+ezlaunch login
+cd the-site-folder
+ezlaunch deploy</code></pre>
+        </section>
+        <section class="page-blog-post__section">
+          <h2>Custom domain and forms</h2>
+          <p><strong>Domain:</strong> in the site's <em>Settings → Custom Domain</em> enter your domain, add an A record at your DNS provider pointing to <code>87.99.143.176</code>, click <em>Check DNS</em>. A Let's Encrypt certificate is issued automatically, usually within two minutes.</p>
+          <p><strong>Forms:</strong> add <code>data-ezlaunch name="contact"</code> to any <code>&lt;form&gt;</code> tag and redeploy. EZLaunch injects the endpoint, filters spam with a honeypot, and shows submissions in the dashboard on paid plans.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Replit deployments or EZLaunch?</h2>
+          <p>Replit has its own deployment options, including static deployments, and they are the right choice when the project also has a server you want in one place. EZLaunch is the simpler and cheaper home for pure websites: custom domain on the free plan, forms without a backend, analytics without a third-party script, and one workflow for sites made with Replit, Lovable, Bolt, Claude Code, or Cursor.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Common questions</h2>
+          <h3>My Replit site used a secret from Replit's Secrets tab.</h3>
+          <p>A static site cannot keep secrets; anything in the files is public. Move that logic to a small API on Replit and call it from the front end.</p>
+          <h3>The download ZIP has a <code>.replit</code> and <code>replit.nix</code> file.</h3>
+          <p>Harmless, but leave them out of what you upload. Only browser files belong in the deploy.</p>
+          <h3>Can I keep editing on Replit?</h3>
+          <p>Yes. Download or pull again, rebuild if needed, and upload. Or connect the repo to GitHub and use EZLaunch's GitHub option for plain HTML projects, then click <em>Redeploy</em> after each push.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>More deploy guides</h2>
+          <ul class="page-blog-post__list">
+            <li><a href="lovable.html">Lovable</a></li>
+            <li><a href="bolt.html">Bolt.new</a></li>
+            <li><a href="v0.html">v0</a></li>
+            <li><a href="claude-code.html">Claude Code</a></li>
+            <li><a href="cursor.html">Cursor</a></li>
+          </ul>
+          <p>Overview of every option: <a href="../blog/deploying-ai-built-sites.html">Deploying sites built by ChatGPT, Claude, Bolt, Lovable, and Replit</a>.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <p class="page-blog-post__disclosure">EZLaunch is a product I build. Menu names and features in Replit change; check its documentation for current specifics.</p>
+        </section>
+      </div>
+
+      <aside class="page-blog-post__cta">
+        <p class="page-blog-post__cta-text">Ready to put your Replit site on your own domain?</p>
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="btn-primary">Get started free</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../index.html" class="footer__brand-logo">
+          <img class="footer__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+        </a>
+        <p class="footer__tagline">Static hosting for AI-generated websites.</p>
+        <div class="footer__social">
+          <a class="footer__social-link" href="https://x.com/EZlaunchapp" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on X">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.facebook.com/profile.php?id=61590129630123" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on Facebook">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/company/ezlaunchapp/" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on LinkedIn">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Product</p>
+          <ul>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../index.html#how-it-works">CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Assets</p>
+          <ul>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../prompt-library.html">Prompt Library</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Developers</p>
+          <ul>
+            <li><a href="https://docs.ezlaunch.app">Docs</a></li>
+            <li><a href="https://github.com/Roosterfishdev/ezlaunch-cli" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 EZLaunch. All rights reserved.</p>
+    </div>
+    <div class="footer__bottom">
+      <a href="../terms.html">Terms</a>
+      <span aria-hidden="true">·</span>
+      <a href="../privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../status.html">Status</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://docs.ezlaunch.app">Docs</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
+  <script src="../js/meta-pixel.js" defer></script>
+</body>
+</html>

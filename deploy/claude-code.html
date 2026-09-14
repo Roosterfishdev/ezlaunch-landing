@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="/assets/EZ-Favicon.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <meta name="description" content="Build a site with Claude Code in your terminal, then deploy it to EZLaunch with the CLI or a ZIP. Custom domain, SSL, forms, and analytics included. The prompts that make it painless.">
+  <meta name="author" content="Julian Cabada">
+  <link rel="canonical" href="https://ezlaunch.app/deploy/claude-code">
+  <meta property="og:title" content="How to Deploy a Claude Code Website on EZLaunch">
+  <meta property="og:description" content="Build a site with Claude Code in your terminal, then deploy it to EZLaunch with the CLI or a ZIP. Custom domain, SSL, forms, and analytics included. The prompts that make it painless.">
+  <meta property="og:url" content="https://ezlaunch.app/deploy/claude-code">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="653">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="How to Deploy a Claude Code Website on EZLaunch">
+  <meta name="twitter:description" content="Build a site with Claude Code in your terminal, then deploy it to EZLaunch with the CLI or a ZIP. Custom domain, SSL, forms, and analytics included. The prompts that make it painless.">
+  <meta name="twitter:image" content="https://ezlaunch.app/assets/og-image.jpg">
+  <title>Deploy a Claude Code Website to EZLaunch in One Command</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "How to Deploy a Claude Code Website on EZLaunch",
+    "description": "Build a site with Claude Code in your terminal, then deploy it to EZLaunch with the CLI or a ZIP. Custom domain, SSL, forms, and analytics included. The prompts that make it painless.",
+    "image": "https://ezlaunch.app/assets/og-image.jpg",
+    "datePublished": "2026-09-14",
+    "dateModified": "2026-09-14",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "https://ezlaunch.app/deploy/claude-code"
+    },
+    "author": {
+      "@type": "Person",
+      "name": "Julian Cabada"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "EZLaunch",
+      "url": "https://ezlaunch.app/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://ezlaunch.app/assets/logo-ezlaunch.svg"
+      }
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://ezlaunch.app/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Deploy guides",
+        "item": "https://ezlaunch.app/blog/deploying-ai-built-sites"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Claude Code",
+        "item": "https://ezlaunch.app/deploy/claude-code"
+      }
+    ]
+  }
+  </script>
+  <link rel="preload" href="../assets/fonts/dm-sans-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="../assets/fonts/urbanist-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="../css/fonts.css">
+  <link rel="stylesheet" href="../css/styles.css">
+</head>
+<body class="page-sub page-blog-post">
+
+  <div class="nav-overlay" id="nav-overlay" aria-hidden="true"></div>
+
+  <nav class="nav" id="nav">
+    <div class="nav__inner">
+      <a href="../index.html" class="nav__logo">
+        <img class="nav__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+      </a>
+      <ul class="nav__links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../about.html">About</a></li>
+      </ul>
+      <div class="nav__actions">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">
+          <span class="nav__cta-short">Start free</span>
+          <span class="nav__cta-full">Get started free</span>
+        </a>
+        <button type="button" class="nav__burger" id="nav-burger" aria-label="Open menu" aria-expanded="false" aria-controls="nav-drawer">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav__drawer" id="nav-drawer" role="dialog" aria-modal="true" aria-label="Site menu" aria-hidden="true">
+      <ul class="nav__drawer-links">
+        <li><a href="../index.html#features">Features</a></li>
+        <li><a href="../index.html#how-it-works">How it works</a></li>
+        <li><a href="../index.html#pricing">Pricing</a></li>
+      </ul>
+      <div class="nav__drawer-cta">
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="nav__cta">Get started free</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="page-blog-post__main">
+    <article class="page-blog-post__inner">
+      <a class="page-blog-post__back" href="../blog/deploying-ai-built-sites.html">← All deploy guides</a>
+
+      <header class="page-blog-post__header">
+        <p class="page-blog-post__meta">September 14, 2026 · <span class="page-blog-post__author">Julian Cabada</span> · 6 min read</p>
+        <h1 class="page-blog-post__title">How to Deploy a Claude Code Website on EZLaunch</h1>
+      </header>
+
+      <div class="page-blog-post__content">
+        <p class="page-blog-post__lead">Claude Code works in your terminal and writes files straight to your disk, which makes it the easiest AI tool to deploy from. Ask it for a plain HTML, CSS, and JavaScript site, run <code>ezlaunch deploy</code> in that folder, and you are live. No build step, no export, no ZIP unless you want one. This guide covers the prompt that keeps things static, the deploy command, and what to do if Claude built a framework project instead.</p>
+
+        <section class="page-blog-post__section">
+          <h2>Start with the right prompt</h2>
+          <p>Claude Code will build whatever you describe, including full React or Next.js apps. For a website that should be cheap, fast, and hosted anywhere, ask for static files explicitly. A prompt that works well:</p>
+          <pre><code>Build a static website using only HTML, CSS, and vanilla JavaScript. Put index.html at the project root with css/ and js/ folders next to it. No frameworks, no build step, no server. Make it responsive and include a contact form with data-ezlaunch name="contact" on the form tag.</code></pre>
+          <p>Because Claude Code edits real files, when it finishes you already have the deployable folder on disk. Open <code>index.html</code> in a browser to check it.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Deploy with the EZLaunch CLI</h2>
+          <p>Install the CLI once, log in once, then deploy from the project folder whenever you want the live site updated:</p>
+          <pre><code>npm install -g ezlaunch
+ezlaunch login
+cd my-site
+ezlaunch deploy</code></pre>
+          <p>The command uploads the current folder and prints the live URL on <code>ezlaunch.app</code>. Run it again after every change; each deploy replaces the previous one with no downtime. You can even ask Claude Code to run it for you at the end of a session.</p>
+          <p>Prefer the dashboard? Zip the contents of the folder (<code>index.html</code> at the top level of the ZIP) and drag it onto <em>New site</em> at <a href="https://app.ezlaunch.app">app.ezlaunch.app</a>.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Keep dev files out of the deploy</h2>
+          <p>Deploy only what the browser needs. If your folder also contains <code>node_modules</code>, <code>.git</code>, <code>.env</code>, or a <code>CLAUDE.md</code>, either deploy from a clean output folder or ask Claude Code to "create a <code>public</code> folder containing only the files needed to serve the site" and deploy from there. Never upload a <code>.env</code> file; EZLaunch serves every file it receives.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>If Claude built a Vite, Astro, or Next.js project</h2>
+          <p>You will see a <code>package.json</code> and a <code>src</code> folder. Run <code>npm install &amp;&amp; npm run build</code>, then deploy the output folder (<code>dist</code> for Vite and Astro, <code>out</code> for Next.js with <code>output: 'export'</code>). For React apps with client-side routing, use HashRouter or per-page HTML files, because EZLaunch returns 404 for paths that do not match a file. Or simply ask Claude Code to "convert this to a static HTML site with one HTML file per page" and skip the build for good.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Custom domain, forms, analytics</h2>
+          <p><strong>Domain:</strong> <em>Settings → Custom Domain</em>, add an A record to <code>87.99.143.176</code>, click <em>Check DNS</em>; SSL is issued in about two minutes.</p>
+          <p><strong>Forms:</strong> the <code>data-ezlaunch name="contact"</code> attribute from the prompt above is all it takes. Submissions appear in the dashboard on paid plans, with honeypot spam protection built in.</p>
+          <p><strong>Analytics:</strong> on by default for every site, no script to add.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>A workflow that scales</h2>
+          <p>Keep the site in a Git repository, let Claude Code make changes on a branch, review the diff, merge, and run <code>ezlaunch deploy</code>. For client work, one EZLaunch account can hold many sites, each on its own domain, all deployed the same way. The <a href="../prompt-library.html">prompt library</a> has more prompts for landing pages, SEO passes, and forms that fit this workflow.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>Common questions</h2>
+          <h3>Do I need a build step?</h3>
+          <p>Not if you asked for plain HTML. That is the point of the prompt above.</p>
+          <h3>Can Claude Code run the deploy itself?</h3>
+          <p>Yes. Once the CLI is installed and logged in, tell it "run ezlaunch deploy" and approve the command.</p>
+          <h3>What about environment variables or secrets?</h3>
+          <p>A static site has none. Anything in the files is public. Put secrets behind a separate API, never in the deployed folder.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <h2>More deploy guides</h2>
+          <ul class="page-blog-post__list">
+            <li><a href="lovable.html">Lovable</a></li>
+            <li><a href="bolt.html">Bolt.new</a></li>
+            <li><a href="v0.html">v0</a></li>
+            <li><a href="cursor.html">Cursor</a></li>
+            <li><a href="replit.html">Replit</a></li>
+          </ul>
+          <p>Overview of every option: <a href="../blog/deploying-ai-built-sites.html">Deploying sites built by ChatGPT, Claude, Bolt, Lovable, and Replit</a>.</p>
+        </section>
+
+        <section class="page-blog-post__section">
+          <p class="page-blog-post__disclosure">EZLaunch is a product I build. Menu names and features in Claude Code change; check its documentation for current specifics.</p>
+        </section>
+      </div>
+
+      <aside class="page-blog-post__cta">
+        <p class="page-blog-post__cta-text">Ready to put your Claude Code site on your own domain?</p>
+        <a href="https://app.ezlaunch.app/signup" onclick="fbq('track', 'Lead'); return true;" class="btn-primary">Get started free</a>
+      </aside>
+    </article>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__grid">
+      <div class="footer__brand">
+        <a href="../index.html" class="footer__brand-logo">
+          <img class="footer__logo-img" src="../assets/logo-ezlaunch.svg" alt="EZLaunch" width="161" height="31" decoding="async">
+        </a>
+        <p class="footer__tagline">Static hosting for AI-generated websites.</p>
+        <div class="footer__social">
+          <a class="footer__social-link" href="https://x.com/EZlaunchapp" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on X">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.facebook.com/profile.php?id=61590129630123" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on Facebook">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" fill="currentColor"/></svg>
+          </a>
+          <a class="footer__social-link" href="https://www.linkedin.com/company/ezlaunchapp/" target="_blank" rel="noopener noreferrer" aria-label="EZLaunch on LinkedIn">
+            <svg class="footer__social-icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" fill="currentColor"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="footer__cols">
+        <div class="footer__col">
+          <p class="footer__col-title">Product</p>
+          <ul>
+            <li><a href="../index.html#features">Features</a></li>
+            <li><a href="../index.html#pricing">Pricing</a></li>
+            <li><a href="../index.html#how-it-works">CLI</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Assets</p>
+          <ul>
+            <li><a href="../blog.html">Blog</a></li>
+            <li><a href="../prompt-library.html">Prompt Library</a></li>
+          </ul>
+        </div>
+        <div class="footer__col">
+          <p class="footer__col-title">Developers</p>
+          <ul>
+            <li><a href="https://docs.ezlaunch.app">Docs</a></li>
+            <li><a href="https://github.com/Roosterfishdev/ezlaunch-cli" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+            <li><a href="../contact.html">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+      <p class="footer__copy">© 2026 EZLaunch. All rights reserved.</p>
+    </div>
+    <div class="footer__bottom">
+      <a href="../terms.html">Terms</a>
+      <span aria-hidden="true">·</span>
+      <a href="../privacy.html">Privacy</a>
+      <span aria-hidden="true">·</span>
+      <a href="../status.html">Status</a>
+      <span aria-hidden="true">·</span>
+      <a href="https://docs.ezlaunch.app">Docs</a>
+    </div>
+  </footer>
+
+  <script src="../js/main.js"></script>
+
+  <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1785768772388885&ev=PageView&noscript=1" alt="" /></noscript>
+  <script src="../js/meta-pixel.js" defer></script>
+</body>
+</html>
